@@ -9,7 +9,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23090b18'/%3E%3Cpath d='M32 11c1 10 7 15 17 17-10 2-16 8-17 24-2-16-7-22-17-24 10-2 15-7 17-17Z' fill='%23f1e8dc'/%3E%3C/svg%3E">
   <style>
     :root {
@@ -22,6 +22,7 @@
       --line-dark: rgba(244,239,231,.22);
       --line-light: rgba(9,11,24,.18);
       --serif: "Lora", Georgia, serif;
+      --signature: "Bodoni Moda", Didot, "Times New Roman", serif;
       --sans: "Inter", Arial, sans-serif;
     }
 
@@ -82,11 +83,13 @@
       border-bottom: 1px solid var(--line-dark);
     }
     .brand {
-      font-family: var(--serif);
-      font-size: 1.18rem;
-      letter-spacing: .03em;
+      font-family: var(--signature);
+      font-size: clamp(1.45rem, 2vw, 1.8rem);
+      line-height: 1;
+      letter-spacing: -.045em;
       text-decoration: none;
     }
+    .brand em { font-style: italic; }
     .nav-note { font-size: .69rem; letter-spacing: .16em; text-transform: uppercase; }
 
     .hero {
@@ -310,18 +313,31 @@
     .page-tracker {
       position: fixed;
       z-index: 20;
-      top: 50%;
-      right: 22px;
-      width: 20px;
-      height: 240px;
-      transform: translateY(-50%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      border-bottom: 1px solid rgba(9,11,24,.13);
+      background: rgba(244,239,231,.9);
+      color: var(--ink);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-100%);
+      transition: opacity .4s ease, transform .55s cubic-bezier(.22,1,.36,1);
     }
-    .tracker-line, .tracker-progress { position: absolute; top: 6px; bottom: 6px; left: 50%; width: 1px; transform: translateX(-50%); }
-    .tracker-line { background: rgba(211,161,124,.5); }
-    .tracker-progress { bottom: auto; height: var(--page-progress, 0%); background: var(--skin); }
-    .tracker-dots { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
-    .tracker-dot { width: 13px; height: 13px; margin-left: auto; margin-right: auto; border: 1px solid rgba(211,161,124,.82); border-radius: 50%; background: rgba(244,239,231,.94); box-shadow: 0 0 0 2px rgba(9,11,24,.08); transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+    .page-tracker.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .tracker-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 56px; }
+    .tracker-brand { flex: 0 0 auto; }
+    .tracker-rail { position: relative; width: clamp(280px, 44vw, 610px); height: 18px; }
+    .tracker-line, .tracker-progress { position: absolute; top: 50%; left: 6px; right: 6px; height: 1px; transform: translateY(-50%); }
+    .tracker-line { background: rgba(9,11,24,.22); }
+    .tracker-progress { right: 6px; background: var(--skin); transform-origin: left center; transform: translateY(-50%) scaleX(var(--page-progress, 0)); }
+    .tracker-dots { position: relative; z-index: 1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .tracker-dot { width: 11px; height: 11px; border: 1px solid rgba(9,11,24,.45); border-radius: 50%; background: var(--ivory); transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
     .tracker-dot.is-active { background: var(--skin); border-color: var(--skin); box-shadow: 0 0 14px 5px rgba(211,161,124,.34); transform: scale(1.08); }
+    main section[id] { scroll-margin-top: 86px; }
 
     .signup { background: var(--ivory); padding: 130px 0; }
     .signup-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 10vw; align-items: start; }
@@ -393,7 +409,8 @@
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .closing-row { display: block; }
       .closing-copy { margin-top: 42px; }
-      .page-tracker { display: none; }
+      .tracker-inner { gap: 28px; }
+      .tracker-rail { width: min(48vw, 420px); }
     }
 
     @media (max-width: 560px) {
@@ -416,6 +433,11 @@
       .credential:last-child { border-bottom: 0; }
       .credential span { margin-bottom: 18px; }
       .manifesto-grid > .eyebrow::after { display: none; }
+      .page-tracker { height: 62px; }
+      .tracker-inner { gap: 22px; }
+      .tracker-brand { font-size: 1.2rem; }
+      .tracker-rail { width: 46vw; }
+      .tracker-dot { width: 9px; height: 9px; }
       footer { flex-direction: column; }
     }
 
@@ -428,22 +450,26 @@
 </head>
 <body>
   <nav class="page-tracker" aria-label="Progression dans la page">
-    <span class="tracker-line" aria-hidden="true"></span>
-    <span class="tracker-progress" aria-hidden="true"></span>
-    <div class="tracker-dots">
-      <a class="tracker-dot is-active" href="#top" aria-label="Introduction"></a>
-      <a class="tracker-dot" href="#vision" aria-label="Vision"></a>
-      <a class="tracker-dot" href="#sarah" aria-label="Sarah Msika"></a>
-      <a class="tracker-dot" href="#liste" aria-label="Inscription"></a>
-      <a class="tracker-dot" href="#parcours" aria-label="Cinq mouvements"></a>
-      <a class="tracker-dot" href="#philosophie" aria-label="Philosophie"></a>
-      <a class="tracker-dot" href="#livre" aria-label="Le livre"></a>
-      <a class="tracker-dot" href="#suite" aria-label="La suite"></a>
+    <div class="shell tracker-inner">
+      <a class="brand tracker-brand" href="#top"><span>Sarah</span> <em>Msika</em></a>
+      <div class="tracker-rail">
+        <span class="tracker-line" aria-hidden="true"></span>
+        <span class="tracker-progress" aria-hidden="true"></span>
+        <div class="tracker-dots">
+          <a class="tracker-dot is-active" href="#vision" aria-label="Vision"></a>
+          <a class="tracker-dot" href="#sarah" aria-label="Sarah Msika"></a>
+          <a class="tracker-dot" href="#liste" aria-label="Inscription"></a>
+          <a class="tracker-dot" href="#parcours" aria-label="Cinq mouvements"></a>
+          <a class="tracker-dot" href="#philosophie" aria-label="Philosophie"></a>
+          <a class="tracker-dot" href="#livre" aria-label="Le livre"></a>
+          <a class="tracker-dot" href="#suite" aria-label="La suite"></a>
+        </div>
+      </div>
     </div>
   </nav>
   <header>
     <div class="shell nav">
-      <a class="brand" href="#top">Sarah Msika</a>
+      <a class="brand" href="#top"><span>Sarah</span> <em>Msika</em></a>
       <span class="nav-note">Une plateforme en devenir</span>
     </div>
   </header>
@@ -652,11 +678,16 @@
     updateChapterTimeline();
 
     const tracker = document.querySelector('.page-tracker');
+    const hero = document.querySelector('.hero');
     const trackerDots = Array.from(document.querySelectorAll('.tracker-dot'));
     const trackedSections = trackerDots.map((dot) => document.querySelector(dot.getAttribute('href')));
     const updatePageTracker = () => {
       const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      tracker.style.setProperty('--page-progress', `${Math.min(100, Math.max(0, window.scrollY / maxScroll * 100))}%`);
+      const trackerStart = Math.min(maxScroll, hero.offsetTop + hero.offsetHeight);
+      const trackerRange = Math.max(1, maxScroll - trackerStart);
+      const trackerProgress = Math.min(100, Math.max(0, (window.scrollY - trackerStart) / trackerRange * 100));
+      tracker.style.setProperty('--page-progress', `${trackerProgress / 100}`);
+      tracker.classList.toggle('is-visible', window.scrollY >= trackerStart - 1);
       const marker = window.innerHeight * .46;
       let activeIndex = 0;
       trackedSections.forEach((section, index) => {
