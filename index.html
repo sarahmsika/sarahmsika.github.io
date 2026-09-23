@@ -345,6 +345,9 @@
 
     .signup { background: var(--ivory); padding: 130px 0; }
     .signup-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 10vw; align-items: start; }
+    .signup.is-complete { padding: 105px 0; }
+    .signup.is-complete .signup-grid { align-items: center; }
+    .signup.is-complete .signup-intro { color: rgba(9,11,24,.62); }
     .signup h2 { margin: 0; max-width: 650px; font-family: var(--serif); font-weight: 400; font-size: clamp(3.5rem, 6vw, 7rem); line-height: .96; letter-spacing: -.055em; }
     .signup h2 em { color: var(--aubergine); font-weight: 400; }
     .signup-intro { max-width: 500px; margin: 34px 0 0; }
@@ -372,7 +375,23 @@
     .form-submit:hover { background: var(--ink); color: var(--ivory); }
     .form-note { margin: 17px 0 0; max-width: 470px; font-size: .72rem; color: rgba(9,11,24,.58); }
     .brevo-status { display: none; margin: 0 0 24px; padding: 16px 18px; border: 1px solid rgba(9,11,24,.16); font-size: .82rem; line-height: 1.55; }
-    #success-message { color: #294b3b; background: #edf4ef; border-color: #b7cdbf; }
+    #success-message {
+      grid-template-columns: 58px 1fr;
+      gap: 24px;
+      align-items: center;
+      margin: 0;
+      padding: 30px 0;
+      border: 0;
+      border-top: 1px solid rgba(75,23,54,.3);
+      border-bottom: 1px solid rgba(75,23,54,.3);
+      color: var(--ink);
+      background: transparent;
+      animation: successReveal .7s cubic-bezier(.22,1,.36,1) both;
+    }
+    .success-mark { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--aubergine); color: var(--ivory); font-family: var(--serif); font-size: 1.25rem; }
+    .success-copy strong { display: block; margin-bottom: 6px; color: var(--aubergine); font-family: var(--signature); font-size: clamp(2rem, 3vw, 3.15rem); font-weight: 400; line-height: 1; letter-spacing: -.04em; }
+    .success-copy span { display: block; max-width: 650px; color: rgba(9,11,24,.7); font-size: .92rem; line-height: 1.6; }
+    @keyframes successReveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
     #error-message { color: #6f2f35; background: #f7eeee; border-color: #d9b9bd; }
     .brevo-honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
     .closing { background: var(--ink); color: var(--ivory); padding: 115px 0 48px; }
@@ -443,6 +462,9 @@
       .tracker-brand { font-size: 1.35rem; }
       .tracker-rail { width: 46vw; }
       .tracker-dot { width: 9px; height: 9px; }
+      .signup.is-complete { padding: 82px 0; }
+      #success-message { grid-template-columns: 46px 1fr; gap: 17px; padding: 24px 0; }
+      .success-mark { width: 44px; height: 44px; }
       footer { flex-direction: column; }
     }
 
@@ -570,7 +592,10 @@
         </div>
         <form class="interest-form" id="sib-form" method="POST" action="https://b0c0e49c.sibforms.com/serve/MUIFAOQUJCgW0uStJQmmdXP3-WDgLFpuiVOE310De0J3eu6aRazN8EdzyEhJmA4EmMRUd7-TsN24SiQUO5_5bHUKZ26hkvXtnEasetGdl3OL34ZLj2_HoKDdua9tbc7eAudZ0vPybu1nerd1IMi__4N3oivEa-viw5tZOb9lxMylxJCsOrD6fWbb9VRa5msZ-HpgjeI_Umk2IrrKHg==" data-type="subscription">
           <div id="error-message" class="sib-form-message-panel brevo-status" role="alert"><span class="sib-form-message-panel__inner-text">Une erreur est survenue. Vérifiez vos informations ou réessayez dans quelques instants.</span></div>
-          <div id="success-message" class="sib-form-message-panel brevo-status" role="status" tabindex="-1"><span class="sib-form-message-panel__inner-text"><strong>Bienvenue.</strong><br>Votre inscription est confirmée. Vous recevrez ici les premières lettres et les nouvelles de la plateforme.</span></div>
+          <div id="success-message" class="sib-form-message-panel brevo-status" role="status" tabindex="-1">
+            <span class="success-mark" aria-hidden="true">✓</span>
+            <span class="success-copy"><strong>Vous êtes là.</strong><span>Votre inscription est confirmée. Vous recevrez les premières lettres et les nouvelles de la plateforme.</span></span>
+          </div>
           <div class="form-row">
             <div class="field"><label for="PRENOM">Prénom</label><input class="input" id="PRENOM" name="PRENOM" type="text" autocomplete="given-name" maxlength="200" data-required="true" required></div>
             <div class="field"><label for="NOM">Nom</label><input class="input" id="NOM" name="NOM" type="text" autocomplete="family-name" maxlength="200" data-required="true" required></div>
@@ -709,6 +734,7 @@
     updatePageTracker();
 
     const interestForm = document.getElementById('sib-form');
+    const signupSection = document.querySelector('.signup');
     interestForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const submitButton = interestForm.querySelector('.form-submit');
@@ -734,7 +760,8 @@
         Array.from(interestForm.children).forEach((element) => {
           if (element !== successMessage) element.style.display = 'none';
         });
-        successMessage.style.display = 'block';
+        signupSection.classList.add('is-complete');
+        successMessage.style.display = 'grid';
         successMessage.focus();
         interestForm.reset();
       } catch (error) {
