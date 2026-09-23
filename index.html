@@ -519,17 +519,12 @@
     </section>
   </main>
   <script>
-    window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
-    window.LOCALE = 'fr';
-    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = 'Veuillez vérifier le format de votre adresse e-mail.';
-    window.REQUIRED_ERROR_MESSAGE = 'Ce champ est obligatoire.';
-    window.GENERIC_INVALID_MESSAGE = 'Les informations fournies ne sont pas valides.';
-    window.INVALID_NUMBER = 'Les informations fournies ne sont pas valides.';
-    window.INVALID_DATE = 'Veuillez saisir une date valide.';
-    window.REQUIRED_MULTISELECT_MESSAGE = 'Veuillez choisir au moins une option.';
-    window.translation = { common: { selectedList: '{quantity} liste sélectionnée', selectedLists: '{quantity} listes sélectionnées', selectedOption: '{quantity} sélectionné', selectedOptions: '{quantity} sélectionnés' } };
-    var AUTOHIDE = Boolean(0);
+    const interestForm = document.getElementById('sib-form');
+    interestForm.addEventListener('submit', () => {
+      const submitButton = interestForm.querySelector('.form-submit');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Envoi en cours…';
+    });
   </script>
-  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
