@@ -84,7 +84,7 @@
     }
     .brand {
       font-family: var(--signature);
-      font-size: clamp(1.45rem, 2vw, 1.8rem);
+      font-size: clamp(1.7rem, 2.3vw, 2.15rem);
       line-height: 1;
       letter-spacing: -.045em;
       text-decoration: none;
@@ -279,14 +279,17 @@
     .book-meta { margin: 36px 0 44px; display: flex; flex-wrap: wrap; gap: 18px 34px; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
     .book-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
-    .about { background: var(--aubergine); color: var(--ivory); padding: 130px 0 120px; }
-    .about-head { margin: 0 auto 82px; text-align: center; }
-    .about h2 { margin: 0 auto; max-width: 1320px; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 5.4vw, 6rem); line-height: 1; letter-spacing: -.05em; }
-    .about-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 8vw; align-items: stretch; }
-    .about-portrait { position: relative; margin: 0; min-height: 0; overflow: hidden; background: #cba17f; }
+    .about { background: var(--aubergine); color: var(--ivory); padding: 120px 0 120px; }
+    .about-head { display: grid; grid-template-columns: .82fr 1.18fr; gap: 8vw; align-items: start; margin: 0 0 78px; text-align: left; }
+    .about-kicker { margin: 12px 0 0; padding-top: 17px; border-top: 1px solid var(--line-dark); color: var(--skin); font-size: .72rem; font-weight: 500; letter-spacing: .19em; text-transform: uppercase; }
+    .about h2 { margin: 0; max-width: 880px; font-family: var(--serif); font-weight: 400; font-size: clamp(2.75rem, 4.25vw, 5.15rem); line-height: 1.04; letter-spacing: -.045em; }
+    .about h2 em { color: var(--skin); font-weight: 400; }
+    .about-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 8vw; align-items: start; }
+    .about-portrait { position: relative; aspect-ratio: .76; margin: 22px 0 0; min-height: 0; overflow: hidden; background: #cba17f; }
     .about-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 52% 38%; filter: saturate(.78) contrast(.98); }
-    .about-story { padding-top: 12px; }
-    .about-lead { margin: 0 0 36px; font-family: var(--serif); font-size: clamp(1.55rem, 2.2vw, 2.15rem); line-height: 1.48; }
+    .about-story { position: relative; padding-top: 30px; border-top: 1px solid var(--line-dark); }
+    .about-lead { margin: 0 0 42px; max-width: 760px; font-family: var(--serif); font-size: clamp(1.35rem, 1.75vw, 1.72rem); line-height: 1.55; }
+    .about-lead::first-letter { float: left; margin: .08em .11em 0 0; color: var(--skin); font-family: var(--signature); font-size: 3.45em; line-height: .72; }
     .about-text { margin: 0 0 28px; max-width: 760px; color: rgba(244,239,231,.8); }
     .about-text:last-child { margin-bottom: 0; }
     .credentials { display: grid; grid-template-columns: 1fr 1fr; width: min(1120px, 100%); margin: 72px auto 0; border-top: 1px solid var(--line-dark); }
@@ -336,13 +339,14 @@
     .tracker-progress { right: 6px; background: var(--skin); transform-origin: left center; transform: translateY(-50%) scaleX(var(--page-progress, 0)); }
     .tracker-dots { position: relative; z-index: 1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .tracker-dot { width: 11px; height: 11px; border: 1px solid rgba(9,11,24,.45); border-radius: 50%; background: var(--ivory); transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
-    .tracker-dot.is-active { background: var(--skin); border-color: var(--skin); box-shadow: 0 0 14px 5px rgba(211,161,124,.34); transform: scale(1.08); }
+    .tracker-dot.is-passed { background: var(--skin); border-color: var(--skin); }
+    .tracker-dot.is-active { box-shadow: 0 0 14px 5px rgba(211,161,124,.34); transform: scale(1.08); }
     main section[id] { scroll-margin-top: 86px; }
 
     .signup { background: var(--ivory); padding: 130px 0; }
     .signup-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 10vw; align-items: start; }
     .signup h2 { margin: 0; max-width: 650px; font-family: var(--serif); font-weight: 400; font-size: clamp(3.5rem, 6vw, 7rem); line-height: .96; letter-spacing: -.055em; }
-    .signup h2 em { color: var(--ink); font-weight: 400; }
+    .signup h2 em { color: var(--aubergine); font-weight: 400; }
     .signup-intro { max-width: 500px; margin: 34px 0 0; }
     .interest-form { padding-top: 12px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -395,7 +399,8 @@
       .hero-art { min-height: 570px; }
       .manifesto-grid, .book-grid, .signup-grid { grid-template-columns: 1fr; gap: 64px; }
       .about-layout { grid-template-columns: 1fr; gap: 48px; }
-      .about-head { margin-bottom: 60px; }
+      .about-head { grid-template-columns: 1fr; gap: 26px; margin-bottom: 58px; }
+      .about-kicker { max-width: 220px; }
       .about-portrait { height: 620px; min-height: 0; }
       .about-portrait img { height: 100%; min-height: 0; }
       .manifesto-text { grid-template-columns: 1fr; gap: 30px; }
@@ -435,7 +440,7 @@
       .manifesto-grid > .eyebrow::after { display: none; }
       .page-tracker { height: 62px; }
       .tracker-inner { gap: 22px; }
-      .tracker-brand { font-size: 1.2rem; }
+      .tracker-brand { font-size: 1.35rem; }
       .tracker-rail { width: 46vw; }
       .tracker-dot { width: 9px; height: 9px; }
       footer { flex-direction: column; }
@@ -470,7 +475,7 @@
   <header>
     <div class="shell nav">
       <a class="brand" href="#top"><span>Sarah</span> <em>Msika</em></a>
-      <span class="nav-note">Une plateforme en devenir</span>
+      <span class="nav-note">Conscience · Maternité · Transmission</span>
     </div>
   </header>
 
@@ -505,7 +510,8 @@
     <section class="about" id="sarah">
       <div class="shell">
         <div class="about-head reveal">
-          <h2>Une trajectoire entre stratégie, intuition et vivant.</h2>
+          <p class="about-kicker">Sarah Msika · À propos</p>
+          <h2>Relier la stratégie, l’intuition et <em>le vivant.</em></h2>
         </div>
         <div class="about-layout reveal">
           <figure class="about-portrait"><img src="assets/sarah-profile-side.jpg" alt="Sarah Msika, portrait de profil dans la lumière"></figure>
@@ -693,7 +699,10 @@
       trackedSections.forEach((section, index) => {
         if (section && section.getBoundingClientRect().top <= marker) activeIndex = index;
       });
-      trackerDots.forEach((dot, index) => dot.classList.toggle('is-active', index === activeIndex));
+      trackerDots.forEach((dot, index) => {
+        dot.classList.toggle('is-passed', index <= activeIndex);
+        dot.classList.toggle('is-active', index === activeIndex);
+      });
     };
     window.addEventListener('scroll', updatePageTracker, { passive: true });
     window.addEventListener('resize', updatePageTracker);
