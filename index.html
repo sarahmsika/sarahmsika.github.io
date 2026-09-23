@@ -6,6 +6,7 @@
   <title>Sarah Msika | Conception, maternité, conscience et transmission</title>
   <meta name="description" content="L’univers de Sarah Msika : conception consciente, maternité, spiritualité, naissance, éducation alternative et transmission. Découvrez aussi le livre Un chemin sacré vers soi.">
   <meta name="theme-color" content="#090b18">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -89,7 +90,7 @@
     .nav-note { font-size: .69rem; letter-spacing: .16em; text-transform: uppercase; }
 
     .hero {
-      min-height: 100svh;
+      min-height: 92svh;
       background: var(--ink);
       color: var(--ivory);
       display: grid;
@@ -121,7 +122,7 @@
     .hero-bottom p { max-width: 520px; margin: 0; color: rgba(244,239,231,.76); }
     .hero-art {
       position: relative;
-      min-height: 690px;
+      min-height: 640px;
       overflow: hidden;
       background: #d7cabb;
     }
@@ -138,20 +139,6 @@
       font-weight: 500;
       letter-spacing: .18em;
     }
-    .hero-index {
-      position: absolute;
-      left: 22px;
-      bottom: 30px;
-      border: 1px solid rgba(9,11,24,.45);
-      border-radius: 50%;
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      font-family: var(--serif);
-      font-size: .75rem;
-    }
-
     .manifesto {
       padding: 145px 0 155px;
       background: var(--paper);
@@ -196,7 +183,18 @@
       border-bottom: 1px solid var(--line-dark);
       padding: 31px 0 29px;
     }
-    .chapter-number { font-size: .68rem; letter-spacing: .15em; color: var(--skin); }
+    .chapter-number {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(211,161,124,.62);
+      border-radius: 50%;
+      font-family: var(--serif);
+      font-size: 1rem;
+      letter-spacing: .04em;
+      color: var(--skin);
+    }
     .chapter h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3vw, 3rem); }
     .chapter p { margin: 0; max-width: 680px; color: rgba(244,239,231,.68); }
 
@@ -296,12 +294,20 @@
     .closing-copy p { margin: 0 0 30px; color: rgba(244,239,231,.72); }
     footer { border-top: 1px solid var(--line-dark); padding-top: 26px; display: flex; justify-content: space-between; gap: 24px; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
 
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1);
+      will-change: opacity, transform;
+    }
+    .js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
     @media (max-width: 900px) {
       .shell { width: min(100% - 36px, 700px); }
       .hero { display: flex; flex-direction: column; min-height: auto; }
       .hero-copy { min-height: 730px; padding: 132px 22px 62px; }
       .hero-bottom { grid-template-columns: 1fr; margin-top: 42px; }
-      .hero-art { min-height: 620px; }
+      .hero-art { min-height: 570px; }
       .manifesto-grid, .book-grid, .signup-grid { grid-template-columns: 1fr; gap: 64px; }
       .about-layout { grid-template-columns: 1fr; gap: 48px; }
       .about-head { margin-bottom: 60px; }
@@ -327,7 +333,8 @@
       .hero-art { min-height: 510px; }
       .manifesto, .book, .about { padding: 92px 0; }
       .chapters { padding: 92px 0 80px; }
-      .chapter { grid-template-columns: 36px 1fr; gap: 16px; }
+      .chapter { grid-template-columns: 44px 1fr; gap: 16px; }
+      .chapter-number { width: 40px; height: 40px; font-size: .92rem; }
       .image-copy { padding: 70px 22px 46px; }
       .image-copy .note { grid-template-columns: 1fr; }
       .closing { padding-top: 96px; }
@@ -337,6 +344,11 @@
       .credential:nth-child(odd) { border-right: 0; padding-right: 0; }
       .credential:nth-child(even) { padding-left: 0; }
       footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
     }
   </style>
 </head>
@@ -355,17 +367,16 @@
         <h1>Donner la vie ne commence pas à la <em>naissance.</em></h1>
         <div class="hero-bottom">
           <p>Un espace pour interroger ce que signifie concevoir, porter, mettre au monde et accompagner un enfant, avec plus de présence, de liberté et de conscience.</p>
-          <a class="button button-light" href="#liste">Être tenue informée</a>
+          <a class="button button-light" href="#liste">Être tenu(e) informé(e)</a>
         </div>
       </div>
       <div class="hero-art">
         <img src="assets/sarah-portrait.jpg" alt="Portrait de Sarah Msika assise dans la lumière">
-        <span class="hero-index">01</span>
       </div>
     </section>
 
     <section class="manifesto" id="vision">
-      <div class="shell manifesto-grid">
+      <div class="shell manifesto-grid reveal">
         <p class="eyebrow">Un territoire à part</p>
         <div>
           <h2>Ni injonctions. Ni modèle unique. Une manière plus <em>consciente</em> d’entrer dans la vie.</h2>
@@ -379,10 +390,10 @@
 
     <section class="about" id="sarah">
       <div class="shell">
-        <div class="about-head">
+        <div class="about-head reveal">
           <h2>Une trajectoire entre stratégie, intuition et vivant.</h2>
         </div>
-        <div class="about-layout">
+        <div class="about-layout reveal">
           <figure class="about-portrait"><img src="assets/sarah-profile-side.jpg" alt="Sarah Msika, portrait de profil dans la lumière"></figure>
           <div class="about-story">
             <p class="about-lead">Entrepreneure, investisseuse, médium, autrice et mère, Sarah Msika relie depuis plus de dix ans des mondes que l’on oppose encore : la stratégie et l’intuition, les connaissances contemporaines et les sagesses ancestrales, l’ambition et l’attention au vivant.</p>
@@ -391,7 +402,7 @@
             <p class="about-text">Sarah donne naissance à son fils à domicile, au terme d’une grossesse vécue comme une exploration consciente, spirituelle et profondément reliée au corps. Le sport, le mouvement, le yoga, l’écoute de son intuition et une préparation physiologique ont accompagné ce passage. Cette expérience, de la conception au postpartum, est l’un des fondements de cette plateforme&nbsp;: transmettre ce qu’elle a appris, éprouvé et choisi, sans en faire un modèle unique.</p>
           </div>
         </div>
-        <div class="credentials" aria-label="Les quatre dimensions du parcours de Sarah Msika">
+        <div class="credentials reveal" aria-label="Les quatre dimensions du parcours de Sarah Msika">
           <div class="credential">
             <span>01 · Se former</span>
             <ul>
@@ -431,7 +442,7 @@
     </section>
 
     <section class="signup" id="liste">
-      <div class="shell signup-grid">
+      <div class="shell signup-grid reveal">
         <div>
           <p class="eyebrow">Connectons-nous</p>
           <h2>Être là<br>dès <em>l’ouverture.</em></h2>
@@ -457,7 +468,7 @@
 
     <section class="chapters" aria-labelledby="chapters-title">
       <div class="shell">
-        <div class="chapters-head">
+        <div class="chapters-head reveal">
           <div>
             <p class="eyebrow">De l’origine à la transmission</p>
             <h2 id="chapters-title">Cinq mouvements.<br>Une même conscience.</h2>
@@ -465,18 +476,18 @@
           <p class="chapters-intro">Une lecture décloisonnée de la maternité et de l’enfance, où le visible dialogue avec l’intime.</p>
         </div>
         <div class="chapter-list">
-          <article class="chapter"><span class="chapter-number">01</span><h3>Concevoir</h3><p>Désir d’enfant, fertilité, préparation du corps, histoire familiale, intention et conscience du passage.</p></article>
-          <article class="chapter"><span class="chapter-number">02</span><h3>Porter</h3><p>Grossesse physiologique, alimentation, mouvement, transformation intérieure et puissance du corps.</p></article>
-          <article class="chapter"><span class="chapter-number">03</span><h3>Naître</h3><p>Choix éclairés, naissance respectée, accueil du bébé, sécurité et premiers liens.</p></article>
-          <article class="chapter"><span class="chapter-number">04</span><h3>Grandir</h3><p>Développement, rythmes, autonomie, nature, pédagogies alternatives et intelligence propre de l’enfant.</p></article>
-          <article class="chapter"><span class="chapter-number">05</span><h3>Transmettre</h3><p>Valeurs, spiritualité, conscience, héritages choisis et construction d’une vie familiale singulière.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">01</span><h3>Concevoir</h3><p>Désir d’enfant, fertilité, préparation du corps, histoire familiale, intention et conscience du passage.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">02</span><h3>Porter</h3><p>Grossesse physiologique, alimentation, mouvement, transformation intérieure et puissance du corps.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">03</span><h3>Naître</h3><p>Choix éclairés, naissance respectée, accueil du bébé, sécurité et premiers liens.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">04</span><h3>Grandir</h3><p>Développement, rythmes, autonomie, nature, pédagogies alternatives et intelligence propre de l’enfant.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">05</span><h3>Transmettre</h3><p>Valeurs, spiritualité, conscience, héritages choisis et construction d’une vie familiale singulière.</p></article>
         </div>
       </div>
     </section>
 
     <section class="image-break">
-      <figure><img src="assets/sarah-yoga.jpg" alt="Sarah Msika en mouvement dans un espace ouvert sur la nature"></figure>
-      <div class="image-copy">
+      <figure class="reveal"><img src="assets/sarah-yoga.jpg" alt="Sarah Msika en mouvement dans un espace ouvert sur la nature"></figure>
+      <div class="image-copy reveal">
         <p class="eyebrow">Corps · Esprit · Âme · Quotidien</p>
         <blockquote class="quote">Le corps sait.<br>L’enfant sait.<br>À nous de créer l’espace pour entendre.</blockquote>
         <div class="note">
@@ -487,7 +498,7 @@
     </section>
 
     <section class="book" id="livre">
-      <div class="shell book-grid">
+      <div class="shell book-grid reveal">
         <div class="book-cover-wrap">
           <img class="book-photo" src="assets/chemin-sacre-promo-clean.jpg" alt="Un chemin sacré vers soi, de Sarah Msika et Alexis Robic">
         </div>
@@ -504,14 +515,14 @@
 
     <section class="closing">
       <div class="shell">
-        <div class="closing-row">
+        <div class="closing-row reveal">
           <div>
             <p class="eyebrow">La suite s’écrit maintenant</p>
             <h2>Être là dès <em>l’ouverture.</em></h2>
           </div>
           <div class="closing-copy">
             <p>Une plateforme dédiée à la conception, à la maternité, à l’enfance et à la conscience est en train de naître.</p>
-            <a class="button button-light" href="#liste">Être tenue informée</a>
+            <a class="button button-light" href="#liste">Être tenu(e) informé(e)</a>
           </div>
         </div>
         <footer><span>© 2026 Sarah Msika</span><span>Instagram · Inné · Contact</span></footer>
@@ -519,6 +530,16 @@
     </section>
   </main>
   <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
     const interestForm = document.getElementById('sib-form');
     interestForm.addEventListener('submit', async (event) => {
       event.preventDefault();
