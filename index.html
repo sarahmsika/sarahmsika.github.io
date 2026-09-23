@@ -62,8 +62,18 @@
       letter-spacing: .04em;
       transition: background .25s ease, color .25s ease, transform .25s ease;
     }
-    .button::after { content: "↗"; font-size: 1rem; }
+    .button::after {
+      content: "";
+      flex: 0 0 18px;
+      width: 18px;
+      height: 18px;
+      background: currentColor;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M4 14 14 4M6 4h8v8' fill='none' stroke='black' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M4 14 14 4M6 4h8v8' fill='none' stroke='black' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+      transition: transform .25s ease;
+    }
     .button:hover { transform: translateY(-2px); }
+    .button:hover::after { transform: translate(2px, -2px); }
     .button-light:hover { background: var(--ivory); color: var(--ink); }
     .button-dark:hover { background: var(--ink); color: var(--ivory); }
 
@@ -372,7 +382,6 @@
     .consent { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; margin: 2px 0 31px; font-size: .76rem; color: rgba(9,11,24,.74); }
     .consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--aubergine); }
     .form-submit { border-color: var(--aubergine); background: var(--aubergine); color: var(--ivory); cursor: pointer; }
-    .form-submit::after { content: "→"; }
     .form-submit:hover { background: var(--ink); color: var(--ivory); }
     .form-note { margin: 17px 0 0; max-width: 470px; font-size: .72rem; color: rgba(9,11,24,.58); }
     .brevo-status { display: none; margin: 0 0 24px; padding: 16px 18px; border: 1px solid rgba(9,11,24,.16); font-size: .82rem; line-height: 1.55; }
@@ -401,7 +410,10 @@
     .closing h2 em { color: var(--skin); font-weight: 400; }
     .closing-copy { max-width: 390px; }
     .closing-copy p { margin: 0 0 30px; color: rgba(244,239,231,.72); }
-    footer { border-top: 1px solid var(--line-dark); padding-top: 26px; display: flex; justify-content: space-between; gap: 24px; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
+    footer { border-top: 1px solid var(--line-dark); padding-top: 26px; display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px 24px; }
+    .footer-links a { text-decoration: none; border-bottom: 1px solid transparent; transition: color .25s ease, border-color .25s ease; }
+    .footer-links a:hover { color: var(--skin); border-color: var(--skin); }
 
     .js .reveal {
       opacity: 0;
@@ -468,6 +480,7 @@
       .success-mark { width: 44px; height: 44px; }
       .book-actions .button { width: 100%; min-width: 0; }
       footer { flex-direction: column; }
+      .footer-links { justify-content: flex-start; gap: 14px 20px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -676,7 +689,15 @@
             <a class="button button-light" href="#liste">Être tenu(e) informé(e)</a>
           </div>
         </div>
-        <footer><span>© 2026 Sarah Msika</span><span>Instagram · Inné · Contact</span></footer>
+        <footer>
+          <span>© 2026 Sarah Msika</span>
+          <nav class="footer-links" aria-label="Liens externes">
+            <a href="https://www.instagram.com/sarah_msika/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://cultivate.fr/" target="_blank" rel="noopener">Cultivate</a>
+            <a href="https://www.innesociety.com/" target="_blank" rel="noopener">Inné</a>
+            <a href="mailto:hello@sarahmsika.com">hello@sarahmsika.com</a>
+          </nav>
+        </footer>
       </div>
     </section>
   </main>
