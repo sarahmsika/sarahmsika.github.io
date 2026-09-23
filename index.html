@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sarah Msika | Conception, maternité, conscience et transmission</title>
+  <meta name="description" content="L’univers de Sarah Msika : conception consciente, maternité, spiritualité, naissance, éducation alternative et transmission. Découvrez aussi le livre Un chemin sacré vers soi.">
+  <meta name="theme-color" content="#090b18">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23090b18'/%3E%3Cpath d='M32 11c1 10 7 15 17 17-10 2-16 8-17 24-2-16-7-22-17-24 10-2 15-7 17-17Z' fill='%23f1e8dc'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #090b18;
+      --ink-soft: #121528;
+      --ivory: #f4efe7;
+      --paper: #fbf8f2;
+      --skin: #d3a17c;
+      --aubergine: #4b1736;
+      --line-dark: rgba(244,239,231,.22);
+      --line-light: rgba(9,11,24,.18);
+      --serif: "Lora", Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { display: block; width: 100%; }
+    .shell { width: min(1380px, calc(100% - 72px)); margin: 0 auto; }
+    .eyebrow {
+      margin: 0 0 26px;
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .serif { font-family: var(--serif); font-weight: 400; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 44px;
+      min-width: 250px;
+      padding: 15px 20px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      transition: background .25s ease, color .25s ease, transform .25s ease;
+    }
+    .button::after { content: "↗"; font-size: 1rem; }
+    .button:hover { transform: translateY(-2px); }
+    .button-light:hover { background: var(--ivory); color: var(--ink); }
+    .button-dark:hover { background: var(--ink); color: var(--ivory); }
+
+    header {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: var(--ivory);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 86px;
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .brand {
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      letter-spacing: .03em;
+      text-decoration: none;
+    }
+    .nav-note { font-size: .69rem; letter-spacing: .16em; text-transform: uppercase; }
+
+    .hero {
+      min-height: 100svh;
+      background: var(--ink);
+      color: var(--ivory);
+      display: grid;
+      grid-template-columns: minmax(0, 1.13fr) minmax(360px, .87fr);
+    }
+    .hero-copy {
+      padding: 150px max(48px, 6vw) 70px max(36px, 7vw);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero h1 {
+      margin: 0;
+      max-width: 870px;
+      font-family: var(--serif);
+      font-size: clamp(3.35rem, 6.25vw, 7.5rem);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+    .hero h1 em { color: var(--skin); font-weight: 400; }
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) minmax(220px, .82fr);
+      gap: 44px;
+      align-items: end;
+      margin-top: 62px;
+    }
+    .hero-bottom p { max-width: 520px; margin: 0; color: rgba(244,239,231,.76); }
+    .hero-art {
+      position: relative;
+      min-height: 690px;
+      overflow: hidden;
+      background: #d7cabb;
+    }
+    .hero-art img { height: 100%; object-fit: cover; object-position: 57% 50%; filter: saturate(.75) contrast(.98); }
+    .hero-art::after {
+      content: "CONCEPTION  •  NAISSANCE  •  CONSCIENCE  •  TRANSMISSION";
+      position: absolute;
+      right: 20px;
+      bottom: 32px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: var(--ink);
+      font-size: .6rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+    }
+    .hero-index {
+      position: absolute;
+      left: 22px;
+      bottom: 30px;
+      border: 1px solid rgba(9,11,24,.45);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: .75rem;
+    }
+
+    .manifesto {
+      padding: 145px 0 155px;
+      background: var(--paper);
+    }
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: .52fr 1.48fr;
+      gap: 9vw;
+      align-items: start;
+    }
+    .manifesto h2 {
+      margin: 0;
+      max-width: 990px;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.8rem, 5.4vw, 6rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+    .manifesto h2 em { color: var(--aubergine); font-weight: 400; }
+    .manifesto-text {
+      margin-top: 74px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7vw;
+      border-top: 1px solid var(--line-light);
+      padding-top: 32px;
+    }
+    .manifesto-text p { margin: 0; max-width: 490px; }
+    .manifesto-text p:first-child { font-family: var(--serif); font-size: 1.33rem; line-height: 1.55; }
+
+    .chapters { background: var(--ink); color: var(--ivory); padding: 130px 0 110px; }
+    .chapters-head { display: flex; justify-content: space-between; gap: 48px; align-items: end; margin-bottom: 76px; }
+    .chapters h2 { margin: 0; max-width: 720px; font-family: var(--serif); font-weight: 400; font-size: clamp(2.75rem, 5vw, 5.3rem); line-height: 1.04; letter-spacing: -.04em; }
+    .chapters-intro { max-width: 390px; color: rgba(244,239,231,.7); margin: 0 0 8px; }
+    .chapter-list { border-top: 1px solid var(--line-dark); }
+    .chapter {
+      display: grid;
+      grid-template-columns: 72px .9fr 1.25fr;
+      gap: 32px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line-dark);
+      padding: 31px 0 29px;
+    }
+    .chapter-number { font-size: .68rem; letter-spacing: .15em; color: var(--skin); }
+    .chapter h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3vw, 3rem); }
+    .chapter p { margin: 0; max-width: 680px; color: rgba(244,239,231,.68); }
+
+    .image-break {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 760px;
+      background: var(--skin);
+    }
+    .image-break figure { margin: 0; overflow: hidden; min-height: 680px; }
+    .image-break img { height: 100%; object-fit: cover; object-position: center; filter: saturate(.7); }
+    .image-copy {
+      padding: 84px max(42px, 7vw);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .image-copy .quote { margin: 0; font-family: var(--serif); font-size: clamp(2.7rem, 5vw, 5.8rem); line-height: 1.05; letter-spacing: -.04em; }
+    .image-copy .note { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding-top: 26px; border-top: 1px solid rgba(9,11,24,.28); }
+    .image-copy .note p { margin: 0; }
+    .image-copy .note p:last-child { font-size: .82rem; }
+
+    .book { padding: 135px 0; background: var(--paper); }
+    .book-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 9vw; align-items: center; }
+    .book-cover-wrap {
+      width: min(480px, 100%);
+      aspect-ratio: .563;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(9,11,24,.16);
+      background: var(--paper);
+    }
+    .book-photo { height: 100%; object-fit: cover; }
+    .book h2 { margin: 0 0 32px; font-family: var(--serif); font-size: clamp(3.3rem, 6vw, 6.7rem); line-height: .99; letter-spacing: -.05em; font-weight: 400; }
+    .book-lead { max-width: 590px; font-family: var(--serif); font-size: 1.35rem; line-height: 1.55; }
+    .book-endorsement { max-width: 590px; margin: 0 0 28px; padding-bottom: 24px; border-bottom: 1px solid var(--line-light); }
+    .book-endorsement p { margin: 0; font-family: var(--serif); font-size: 1.15rem; font-style: italic; }
+    .book-endorsement span { display: block; margin-top: 7px; font-size: .67rem; letter-spacing: .14em; text-transform: uppercase; }
+    .book-meta { margin: 36px 0 44px; display: flex; flex-wrap: wrap; gap: 18px 34px; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
+
+    .about { background: var(--aubergine); color: var(--ivory); padding: 130px 0 120px; }
+    .about-head { margin: 0 auto 82px; text-align: center; }
+    .about h2 { margin: 0 auto; max-width: 1320px; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 5.4vw, 6rem); line-height: 1; letter-spacing: -.05em; }
+    .about-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 8vw; align-items: stretch; }
+    .about-portrait { position: relative; margin: 0; min-height: 0; overflow: hidden; background: #cba17f; }
+    .about-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 52% 38%; filter: saturate(.78) contrast(.98); }
+    .about-story { padding-top: 12px; }
+    .about-lead { margin: 0 0 36px; font-family: var(--serif); font-size: clamp(1.55rem, 2.2vw, 2.15rem); line-height: 1.48; }
+    .about-text { margin: 0 0 28px; max-width: 760px; color: rgba(244,239,231,.8); }
+    .about-text:last-child { margin-bottom: 0; }
+    .credentials { display: grid; grid-template-columns: 1fr 1fr; width: min(1120px, 100%); margin: 72px auto 0; border-top: 1px solid var(--line-dark); }
+    .credential { min-height: 155px; padding: 24px 22px 25px 0; border-bottom: 1px solid var(--line-dark); }
+    .credential:nth-child(odd) { border-right: 1px solid var(--line-dark); padding-right: 28px; }
+    .credential:nth-child(even) { padding-left: 28px; }
+    .credential span { display: block; margin-bottom: 13px; color: var(--skin); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; }
+    .credential ul { margin: 0; padding: 0; list-style: none; color: rgba(244,239,231,.88); font-size: .88rem; line-height: 1.55; }
+    .credential li { position: relative; padding-left: 17px; }
+    .credential li + li { margin-top: 8px; }
+    .credential li::before { content: "•"; position: absolute; left: 0; color: var(--skin); }
+
+    .signup { background: var(--ivory); padding: 130px 0; }
+    .signup-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 10vw; align-items: start; }
+    .signup h2 { margin: 0; max-width: 650px; font-family: var(--serif); font-weight: 400; font-size: clamp(3.5rem, 6vw, 7rem); line-height: .96; letter-spacing: -.055em; }
+    .signup h2 em { color: var(--ink); font-weight: 400; }
+    .signup-intro { max-width: 500px; margin: 34px 0 0; }
+    .interest-form { padding-top: 12px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .field { display: flex; flex-direction: column; margin-bottom: 27px; }
+    .field label, .field > span { margin-bottom: 12px; font-size: .67rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
+    .field input, .field select {
+      width: 100%;
+      min-height: 48px;
+      padding: 7px 2px;
+      border: 0;
+      border-bottom: 1px solid rgba(9,11,24,.68);
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+    .field input:focus, .field select:focus { border-bottom-color: var(--aubergine); box-shadow: 0 1px 0 var(--aubergine); }
+    .consent { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; margin: 2px 0 31px; font-size: .76rem; color: rgba(9,11,24,.74); }
+    .consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--aubergine); }
+    .form-submit { border-color: var(--aubergine); background: var(--aubergine); color: var(--ivory); cursor: pointer; }
+    .form-submit::after { content: "→"; }
+    .form-submit:hover { background: var(--ink); color: var(--ivory); }
+    .form-note { margin: 17px 0 0; max-width: 470px; font-size: .72rem; color: rgba(9,11,24,.58); }
+    .brevo-status { display: none; margin: 0 0 24px; padding: 16px 18px; border: 1px solid rgba(9,11,24,.16); font-size: .82rem; line-height: 1.55; }
+    #success-message { color: #294b3b; background: #edf4ef; border-color: #b7cdbf; }
+    #error-message { color: #6f2f35; background: #f7eeee; border-color: #d9b9bd; }
+    .brevo-honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+    .closing { background: var(--ink); color: var(--ivory); padding: 115px 0 48px; }
+    .closing-row { display: flex; justify-content: space-between; gap: 64px; align-items: end; padding-bottom: 95px; }
+    .closing h2 { margin: 0; max-width: 850px; font-family: var(--serif); font-weight: 400; font-size: clamp(3.2rem, 6.5vw, 7rem); line-height: .96; letter-spacing: -.055em; }
+    .closing h2 em { color: var(--skin); font-weight: 400; }
+    .closing-copy { max-width: 390px; }
+    .closing-copy p { margin: 0 0 30px; color: rgba(244,239,231,.72); }
+    footer { border-top: 1px solid var(--line-dark); padding-top: 26px; display: flex; justify-content: space-between; gap: 24px; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
+
+    @media (max-width: 900px) {
+      .shell { width: min(100% - 36px, 700px); }
+      .hero { display: flex; flex-direction: column; min-height: auto; }
+      .hero-copy { min-height: 730px; padding: 132px 22px 62px; }
+      .hero-bottom { grid-template-columns: 1fr; margin-top: 42px; }
+      .hero-art { min-height: 620px; }
+      .manifesto-grid, .book-grid, .signup-grid { grid-template-columns: 1fr; gap: 64px; }
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .about-head { margin-bottom: 60px; }
+      .about-portrait { height: 620px; min-height: 0; }
+      .about-portrait img { height: 100%; min-height: 0; }
+      .manifesto-text { grid-template-columns: 1fr; gap: 30px; }
+      .chapters-head { display: block; }
+      .chapters-intro { margin-top: 32px; }
+      .chapter { grid-template-columns: 44px 1fr; }
+      .chapter p { grid-column: 2; }
+      .image-break { grid-template-columns: 1fr; }
+      .image-copy { min-height: 650px; }
+      .book-cover-wrap { margin: 0 auto; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .closing-row { display: block; }
+      .closing-copy { margin-top: 42px; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-note { display: none; }
+      .hero h1 { font-size: clamp(3rem, 14vw, 4.2rem); }
+      .hero-copy { min-height: 670px; }
+      .hero-art { min-height: 510px; }
+      .manifesto, .book, .about { padding: 92px 0; }
+      .chapters { padding: 92px 0 80px; }
+      .chapter { grid-template-columns: 36px 1fr; gap: 16px; }
+      .image-copy { padding: 70px 22px 46px; }
+      .image-copy .note { grid-template-columns: 1fr; }
+      .closing { padding-top: 96px; }
+      .about-portrait { height: 520px; min-height: 0; }
+      .about-portrait img { height: 100%; min-height: 0; }
+      .credentials { grid-template-columns: 1fr; }
+      .credential:nth-child(odd) { border-right: 0; padding-right: 0; }
+      .credential:nth-child(even) { padding-left: 0; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#top">Sarah Msika</a>
+      <span class="nav-note">Une plateforme en devenir</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Conception · Maternité · Conscience · Transmission</p>
+        <h1>Donner la vie ne commence pas à la <em>naissance.</em></h1>
+        <div class="hero-bottom">
+          <p>Un espace pour interroger ce que signifie concevoir, porter, mettre au monde et accompagner un enfant, avec plus de présence, de liberté et de conscience.</p>
+          <a class="button button-light" href="#liste">Être tenue informée</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/sarah-portrait.jpg" alt="Portrait de Sarah Msika assise dans la lumière">
+        <span class="hero-index">01</span>
+      </div>
+    </section>
+
+    <section class="manifesto" id="vision">
+      <div class="shell manifesto-grid">
+        <p class="eyebrow">Un territoire à part</p>
+        <div>
+          <h2>Ni injonctions. Ni modèle unique. Une manière plus <em>consciente</em> d’entrer dans la vie.</h2>
+          <div class="manifesto-text">
+            <p>La maternité n’est pas un sujet isolé. Elle engage le corps, l’histoire, l’intuition, le couple, la lignée, le quotidien et la façon dont nous imaginons le monde à transmettre.</p>
+            <p>La conception, la grossesse, le postpartum, la spiritualité et l’éducation alternative seront ici abordés comme les dimensions reliées d’un même chemin. Il ne s’agit pas de proposer un modèle à suivre, mais d’ouvrir un espace de discernement, de liberté et de transmission.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sarah">
+      <div class="shell">
+        <div class="about-head">
+          <h2>Une trajectoire entre stratégie, intuition et vivant.</h2>
+        </div>
+        <div class="about-layout">
+          <figure class="about-portrait"><img src="assets/sarah-profile-side.jpg" alt="Sarah Msika, portrait de profil dans la lumière"></figure>
+          <div class="about-story">
+            <p class="about-lead">Entrepreneure, investisseuse, médium, autrice et mère, Sarah Msika relie depuis plus de dix ans des mondes que l’on oppose encore : la stratégie et l’intuition, les connaissances contemporaines et les sagesses ancestrales, l’ambition et l’attention au vivant.</p>
+            <p class="about-text">Après cinq années d’histoire de l’art et de droit à la Sorbonne, un passage chez Christie’s et Artcurial, puis par le conseil en stratégie chez PwC, elle quitte le monde corporate à vingt-six ans pour entreprendre. Avec Sidney Delourme, elle crée Plantation Paris, la plus grande ferme urbaine sur toiture d’Europe, puis développe Cultivate et s’engage auprès de projets qui réinventent nos façons de vivre, de nous nourrir et de prendre soin de nous.</p>
+            <p class="about-text">En parallèle, Pointus l’amène à parcourir plus de trente pays, à rencontrer des praticiens et à explorer le yoga, le pranayama, l’ayurvéda, la spiritualité et la médiumnité. Cofondatrice d’Inné et coautrice avec Alexis Robic d’<em>Un chemin sacré vers soi</em>, elle transforme aujourd’hui ce parcours en transmission.</p>
+            <p class="about-text">Sarah donne naissance à son fils à domicile, au terme d’une grossesse vécue comme une exploration consciente, spirituelle et profondément reliée au corps. Le sport, le mouvement, le yoga, l’écoute de son intuition et une préparation physiologique ont accompagné ce passage. Cette expérience, de la conception au postpartum, est l’un des fondements de cette plateforme&nbsp;: transmettre ce qu’elle a appris, éprouvé et choisi, sans en faire un modèle unique.</p>
+          </div>
+        </div>
+        <div class="credentials" aria-label="Les quatre dimensions du parcours de Sarah Msika">
+          <div class="credential">
+            <span>01 · Se former</span>
+            <ul>
+              <li>Histoire de l’art et droit à la Sorbonne</li>
+              <li>Christie’s</li>
+              <li>Artcurial</li>
+              <li>Conseil en stratégie chez PwC</li>
+            </ul>
+          </div>
+          <div class="credential">
+            <span>02 · Entreprendre</span>
+            <ul>
+              <li>Plantation Paris, plus grande ferme urbaine d’Europe créée à 26 ans</li>
+              <li>Cultivate, conseil en immobilier conscient</li>
+              <li>Inné Society, co-créée avec Alexis Robic</li>
+            </ul>
+          </div>
+          <div class="credential">
+            <span>03 · Explorer</span>
+            <ul>
+              <li>Plus de 30 pays visités</li>
+              <li>350 h de YTT (Teacher Training) en hatha yoga et pranayama à l’étranger</li>
+              <li>Ayurvéda, spiritualité, médiumnité et guidance</li>
+            </ul>
+          </div>
+          <div class="credential">
+            <span>04 · Transmettre</span>
+            <ul>
+              <li>Pointus</li>
+              <li>Inné Society</li>
+              <li><em>Un chemin sacré vers soi</em></li>
+              <li>Cette plateforme en devenir</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signup" id="liste">
+      <div class="shell signup-grid">
+        <div>
+          <p class="eyebrow">Connectons-nous</p>
+          <h2>Être là<br>dès <em>l’ouverture.</em></h2>
+          <p class="signup-intro">Recevez les premières lettres, les nouvelles liées au livre et l’annonce de l’ouverture de la plateforme.</p>
+        </div>
+        <form class="interest-form" id="sib-form" method="POST" action="https://b0c0e49c.sibforms.com/serve/MUIFAOQUJCgW0uStJQmmdXP3-WDgLFpuiVOE310De0J3eu6aRazN8EdzyEhJmA4EmMRUd7-TsN24SiQUO5_5bHUKZ26hkvXtnEasetGdl3OL34ZLj2_HoKDdua9tbc7eAudZ0vPybu1nerd1IMi__4N3oivEa-viw5tZOb9lxMylxJCsOrD6fWbb9VRa5msZ-HpgjeI_Umk2IrrKHg==" data-type="subscription">
+          <div id="error-message" class="sib-form-message-panel brevo-status" role="alert"><span class="sib-form-message-panel__inner-text">Une erreur est survenue. Vérifiez vos informations ou réessayez dans quelques instants.</span></div>
+          <div id="success-message" class="sib-form-message-panel brevo-status" role="status"><span class="sib-form-message-panel__inner-text">Merci. Votre demande d’inscription a bien été prise en compte.</span></div>
+          <div class="form-row">
+            <div class="field"><label for="PRENOM">Prénom</label><input class="input" id="PRENOM" name="PRENOM" type="text" autocomplete="given-name" maxlength="200" data-required="true" required></div>
+            <div class="field"><label for="NOM">Nom</label><input class="input" id="NOM" name="NOM" type="text" autocomplete="family-name" maxlength="200" data-required="true" required></div>
+          </div>
+          <label class="field" for="EMAIL"><span>E-mail</span><input class="input" id="EMAIL" name="EMAIL" type="email" autocomplete="email" data-required="true" required></label>
+          <label class="field" for="ETAPE"><span>Où en êtes-vous ?</span><select class="input" id="ETAPE" name="ETAPE" data-required="true" required><option value="" selected disabled>Choisir l’étape qui vous ressemble</option><option>Désir d’enfant / conception</option><option>Grossesse / naissance</option><option>Postpartum / jeune maternité</option><option>Enfance / éducation alternative</option><option>Cheminement personnel / conscience</option><option>Professionnelle de l’accompagnement</option><option>Autre cheminement</option></select></label>
+          <label class="consent"><input class="input_replaced" type="checkbox" id="OPT_IN" name="OPT_IN" value="1" required><span>J’accepte de recevoir les lettres de Sarah Msika et confirme avoir pris connaissance de la politique de confidentialité. Je pourrai me désinscrire à tout moment.</span></label>
+          <input class="brevo-honeypot" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="locale" value="fr">
+          <button class="button form-submit" type="submit">Je rejoins la liste</button>
+          <p class="form-note">Quelques messages seulement, choisis avec soin. Aucune transmission de vos informations.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="chapters" aria-labelledby="chapters-title">
+      <div class="shell">
+        <div class="chapters-head">
+          <div>
+            <p class="eyebrow">De l’origine à la transmission</p>
+            <h2 id="chapters-title">Cinq mouvements.<br>Une même conscience.</h2>
+          </div>
+          <p class="chapters-intro">Une lecture décloisonnée de la maternité et de l’enfance, où le visible dialogue avec l’intime.</p>
+        </div>
+        <div class="chapter-list">
+          <article class="chapter"><span class="chapter-number">01</span><h3>Concevoir</h3><p>Désir d’enfant, fertilité, préparation du corps, histoire familiale, intention et conscience du passage.</p></article>
+          <article class="chapter"><span class="chapter-number">02</span><h3>Porter</h3><p>Grossesse physiologique, alimentation, mouvement, transformation intérieure et puissance du corps.</p></article>
+          <article class="chapter"><span class="chapter-number">03</span><h3>Naître</h3><p>Choix éclairés, naissance respectée, accueil du bébé, sécurité et premiers liens.</p></article>
+          <article class="chapter"><span class="chapter-number">04</span><h3>Grandir</h3><p>Développement, rythmes, autonomie, nature, pédagogies alternatives et intelligence propre de l’enfant.</p></article>
+          <article class="chapter"><span class="chapter-number">05</span><h3>Transmettre</h3><p>Valeurs, spiritualité, conscience, héritages choisis et construction d’une vie familiale singulière.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="image-break">
+      <figure><img src="assets/sarah-yoga.jpg" alt="Sarah Msika en mouvement dans un espace ouvert sur la nature"></figure>
+      <div class="image-copy">
+        <p class="eyebrow">Corps · Esprit · Âme · Quotidien</p>
+        <blockquote class="quote">Le corps sait.<br>L’enfant sait.<br>À nous de créer l’espace pour entendre.</blockquote>
+        <div class="note">
+          <p>Une approche incarnée, nourrie par l’expérience, l’étude, les pratiques traditionnelles et une attention radicale au vivant.</p>
+          <p>Je ne me présente pas comme une experte. Je partage une expérience vécue, nourrie par des années de recherche, d’exploration et de pratique, pour éclairer celles et ceux qui avancent sur des questionnements proches des miens.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="book" id="livre">
+      <div class="shell book-grid">
+        <div class="book-cover-wrap">
+          <img class="book-photo" src="assets/chemin-sacre-promo-clean.png" alt="Un chemin sacré vers soi, de Sarah Msika et Alexis Robic">
+        </div>
+        <div>
+          <p class="eyebrow">Le premier passage</p>
+          <h2>Un chemin<br>sacré vers soi</h2>
+          <div class="book-endorsement"><p>« Un véritable manuel de vie consciente. »</p><span>Sidney Delourme</span></div>
+          <p class="book-lead">Et si ce que vous cherchiez ne s’apprenait pas, mais se révélait ? Sans dogme ni solution miracle, ce livre réunit sciences contemporaines, sagesses ancestrales et expérience vécue. Une invitation à observer, ressentir, expérimenter et choisir, afin de construire un chemin véritablement vôtre.</p>
+          <div class="book-meta"><span>Sarah Msika &amp; Alexis Robic</span><span>Éditions First</span><span>05.11.2026</span></div>
+          <a class="button button-dark" href="https://www.amazon.fr/s?k=Un+chemin+sacr%C3%A9+vers+soi+Sarah+Msika+Alexis+Robic" target="_blank" rel="noopener">Précommander sur Amazon</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="shell">
+        <div class="closing-row">
+          <div>
+            <p class="eyebrow">La suite s’écrit maintenant</p>
+            <h2>Être là dès <em>l’ouverture.</em></h2>
+          </div>
+          <div class="closing-copy">
+            <p>Une plateforme dédiée à la conception, à la maternité, à l’enfance et à la conscience est en train de naître.</p>
+            <a class="button button-light" href="#liste">Être tenue informée</a>
+          </div>
+        </div>
+        <footer><span>© 2026 Sarah Msika</span><span>Instagram · Inné · Contact</span></footer>
+      </div>
+    </section>
+  </main>
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
+    window.LOCALE = 'fr';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = 'Veuillez vérifier le format de votre adresse e-mail.';
+    window.REQUIRED_ERROR_MESSAGE = 'Ce champ est obligatoire.';
+    window.GENERIC_INVALID_MESSAGE = 'Les informations fournies ne sont pas valides.';
+    window.INVALID_NUMBER = 'Les informations fournies ne sont pas valides.';
+    window.INVALID_DATE = 'Veuillez saisir une date valide.';
+    window.REQUIRED_MULTISELECT_MESSAGE = 'Veuillez choisir au moins une option.';
+    window.translation = { common: { selectedList: '{quantity} liste sélectionnée', selectedLists: '{quantity} listes sélectionnées', selectedOption: '{quantity} sélectionné', selectedOptions: '{quantity} sélectionnés' } };
+    var AUTOHIDE = Boolean(0);
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+</body>
+</html>
