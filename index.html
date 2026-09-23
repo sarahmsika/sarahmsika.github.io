@@ -439,7 +439,7 @@
         </div>
         <form class="interest-form" id="sib-form" method="POST" action="https://b0c0e49c.sibforms.com/serve/MUIFAOQUJCgW0uStJQmmdXP3-WDgLFpuiVOE310De0J3eu6aRazN8EdzyEhJmA4EmMRUd7-TsN24SiQUO5_5bHUKZ26hkvXtnEasetGdl3OL34ZLj2_HoKDdua9tbc7eAudZ0vPybu1nerd1IMi__4N3oivEa-viw5tZOb9lxMylxJCsOrD6fWbb9VRa5msZ-HpgjeI_Umk2IrrKHg==" data-type="subscription">
           <div id="error-message" class="sib-form-message-panel brevo-status" role="alert"><span class="sib-form-message-panel__inner-text">Une erreur est survenue. Vérifiez vos informations ou réessayez dans quelques instants.</span></div>
-          <div id="success-message" class="sib-form-message-panel brevo-status" role="status"><span class="sib-form-message-panel__inner-text">Merci. Votre demande d’inscription a bien été prise en compte.</span></div>
+          <div id="success-message" class="sib-form-message-panel brevo-status" role="status" tabindex="-1"><span class="sib-form-message-panel__inner-text"><strong>Bienvenue.</strong><br>Votre inscription est confirmée. Vous recevrez ici les premières lettres et les nouvelles de la plateforme.</span></div>
           <div class="form-row">
             <div class="field"><label for="PRENOM">Prénom</label><input class="input" id="PRENOM" name="PRENOM" type="text" autocomplete="given-name" maxlength="200" data-required="true" required></div>
             <div class="field"><label for="NOM">Nom</label><input class="input" id="NOM" name="NOM" type="text" autocomplete="family-name" maxlength="200" data-required="true" required></div>
@@ -520,10 +520,40 @@
   </main>
   <script>
     const interestForm = document.getElementById('sib-form');
-    interestForm.addEventListener('submit', () => {
+    interestForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
       const submitButton = interestForm.querySelector('.form-submit');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
+      const originalButtonText = submitButton.textContent;
+
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
       submitButton.disabled = true;
       submitButton.textContent = 'Envoi en cours…';
+
+      try {
+        const response = await fetch(interestForm.action, {
+          method: 'POST',
+          body: new FormData(interestForm),
+          headers: { Accept: 'application/json' }
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.success) throw new Error('Brevo rejected the subscription');
+
+        Array.from(interestForm.children).forEach((element) => {
+          if (element !== successMessage) element.style.display = 'none';
+        });
+        successMessage.style.display = 'block';
+        successMessage.focus();
+        interestForm.reset();
+      } catch (error) {
+        errorMessage.style.display = 'block';
+        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
     });
   </script>
 </body>
