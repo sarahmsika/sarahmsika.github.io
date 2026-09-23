@@ -264,11 +264,17 @@
       padding: 84px max(42px, 7vw);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 62px;
     }
-    .image-copy .quote { margin: 0; font-family: var(--serif); font-size: clamp(2.7rem, 5vw, 5.8rem); line-height: 1.05; letter-spacing: -.04em; }
+    .image-copy > .eyebrow { margin: 0; padding-top: 17px; border-top: 1px solid rgba(9,11,24,.28); color: var(--aubergine); }
+    .image-copy .quote { margin: 0; font-family: var(--serif); font-size: clamp(2.6rem, 4.4vw, 5.1rem); line-height: 1.02; letter-spacing: -.045em; }
+    .quote-line { display: block; }
+    .quote-line:nth-child(2) { margin-left: 10%; }
+    .image-copy .quote em { display: block; max-width: 720px; margin-top: .3em; color: var(--aubergine); font-family: var(--signature); font-size: .72em; font-weight: 400; line-height: 1.12; letter-spacing: -.04em; }
     .image-copy .note { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding-top: 26px; border-top: 1px solid rgba(9,11,24,.28); }
     .image-copy .note p { margin: 0; }
+    .image-copy .note p:first-child { font-family: var(--serif); font-size: 1.08rem; line-height: 1.55; }
     .image-copy .note p:last-child { font-size: .82rem; }
 
     .book { padding: 135px 0; background: var(--ivory); }
@@ -461,6 +467,8 @@
       .chapter-flow { left: 20px; }
       .chapter-number { width: 40px; font-size: .98rem; }
       .image-copy { padding: 70px 22px 46px; }
+      .image-copy { gap: 46px; }
+      .quote-line:nth-child(2) { margin-left: 7%; }
       .image-copy .note { grid-template-columns: 1fr; }
       .closing { padding-top: 96px; }
       .about-portrait { height: 520px; min-height: 0; }
@@ -650,7 +658,7 @@
       <figure class="reveal"><img src="assets/sarah-yoga.jpg" alt="Sarah Msika en mouvement dans un espace ouvert sur la nature"></figure>
       <div class="image-copy reveal">
         <p class="eyebrow">Corps · Esprit · Âme · Quotidien</p>
-        <blockquote class="quote">Le corps sait.<br>L’enfant sait.<br>À nous de créer l’espace pour entendre.</blockquote>
+        <blockquote class="quote"><span class="quote-line">Le corps sait.</span><span class="quote-line">L’enfant sait.</span><em>À nous de créer l’espace pour entendre.</em></blockquote>
         <div class="note">
           <p>Une approche incarnée, nourrie par l’expérience, l’étude, les pratiques traditionnelles et une attention radicale au vivant.</p>
           <p>Je ne me présente pas comme une experte. Je partage une expérience vécue, nourrie par des années de recherche, d’exploration et de pratique, pour éclairer celles et ceux qui avancent sur des questionnements proches des miens.</p>
