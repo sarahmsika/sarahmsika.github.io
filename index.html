@@ -261,7 +261,7 @@
     .image-copy .note p { margin: 0; }
     .image-copy .note p:last-child { font-size: .82rem; }
 
-    .book { padding: 135px 0; background: var(--paper); }
+    .book { padding: 135px 0; background: var(--ivory); }
     .book-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 9vw; align-items: center; }
     .book-cover-wrap {
       width: min(480px, 100%);
@@ -278,6 +278,7 @@
     .book-endorsement span { display: block; margin-top: 7px; font-size: .67rem; letter-spacing: .14em; text-transform: uppercase; }
     .book-meta { margin: 36px 0 44px; display: flex; flex-wrap: wrap; gap: 18px 34px; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
     .book-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .book-actions .button { min-width: 280px; }
 
     .about { background: var(--aubergine); color: var(--ivory); padding: 120px 0 120px; }
     .about-head { display: grid; grid-template-columns: .82fr 1.18fr; gap: 8vw; align-items: start; margin: 0 0 78px; text-align: left; }
@@ -465,6 +466,7 @@
       .signup.is-complete { padding: 82px 0; }
       #success-message { grid-template-columns: 46px 1fr; gap: 17px; padding: 24px 0; }
       .success-mark { width: 44px; height: 44px; }
+      .book-actions .button { width: 100%; min-width: 0; }
       footer { flex-direction: column; }
     }
 
@@ -656,7 +658,7 @@
           <div class="book-meta"><span>Sarah Msika &amp; Alexis Robic</span><span>Éditions First</span><span>05.11.2026</span></div>
           <div class="book-actions">
             <a class="button button-dark" href="https://www.amazon.fr/s?k=Un+chemin+sacr%C3%A9+vers+soi+Sarah+Msika+Alexis+Robic" target="_blank" rel="noopener">Précommander sur Amazon</a>
-            <a class="button button-dark" href="https://inne-theta.vercel.app/livre" target="_blank" rel="noopener">Découvrir sur Inné</a>
+            <a class="button button-dark" href="https://inne-theta.vercel.app/livre" target="_blank" rel="noopener">Découvrir les coulisses du livre</a>
           </div>
         </div>
       </div>
