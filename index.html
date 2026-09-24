@@ -252,6 +252,19 @@
     .chapter h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3vw, 3rem); }
     .chapter p { margin: 0; max-width: 680px; color: rgba(244,239,231,.68); }
 
+    .platform { padding: 130px 0; background: var(--ivory); }
+    .platform-head { display: grid; grid-template-columns: 1.2fr 1fr; gap: 9vw; align-items: center; }
+    .platform .eyebrow { color: var(--aubergine); }
+    .platform h2 { margin: 0; color: var(--aubergine); font-family: var(--serif); font-weight: 400; font-size: clamp(2.75rem, 5vw, 5.3rem); line-height: 1.04; letter-spacing: -.04em; }
+    .platform h2 em { font-weight: 400; }
+    .platform-intro { max-width: 490px; margin: 0; color: rgba(9,11,24,.7); }
+    .platform-options { display: grid; grid-template-columns: 1fr 1fr; margin-top: 72px; padding-top: 44px; border-top: 1px solid var(--line-light); }
+    .platform-option:first-child { padding-right: 5vw; }
+    .platform-option + .platform-option { border-left: 1px solid var(--line-light); padding-left: 5vw; }
+    .platform-option h3 { margin: 0 0 24px; color: var(--aubergine); font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 2.8vw, 2.7rem); line-height: 1.2; letter-spacing: -.025em; }
+    .platform-option p { max-width: 530px; margin: 0; color: rgba(9,11,24,.7); }
+    .platform-option a { color: var(--aubergine); text-underline-offset: .2em; }
+
     .image-break {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -442,6 +455,11 @@
       .about-portrait img { height: 100%; min-height: 0; }
       .manifesto-text { grid-template-columns: 1fr; gap: 30px; }
       .chapters-head { display: block; }
+      .platform-head { grid-template-columns: 1fr; gap: 32px; }
+      .platform-intro { max-width: 620px; }
+      .platform-options { grid-template-columns: 1fr; margin-top: 48px; padding-top: 34px; }
+      .platform-option:first-child { padding-right: 0; padding-bottom: 34px; }
+      .platform-option + .platform-option { border-left: 0; border-top: 1px solid var(--line-light); padding: 34px 0 0; }
       .chapters-intro { margin-top: 32px; }
       .chapter { grid-template-columns: 44px 1fr; }
       .chapter p { grid-column: 2; }
@@ -462,6 +480,7 @@
       .hero-art { min-height: 510px; }
       .manifesto, .book, .about { padding: 92px 0; }
       .chapters { padding: 92px 0 80px; }
+      .platform { padding: 92px 0; }
       .chapter { grid-template-columns: 44px 1fr; gap: 16px; }
       .chapter-flow { left: 20px; }
       .chapter-number { width: 40px; font-size: .98rem; }
@@ -507,7 +526,8 @@
           <a class="tracker-dot is-active" href="#vision" aria-label="Vision"></a>
           <a class="tracker-dot" href="#sarah" aria-label="Sarah Msika"></a>
           <a class="tracker-dot" href="#liste" aria-label="Inscription"></a>
-          <a class="tracker-dot" href="#parcours" aria-label="Cinq mouvements"></a>
+          <a class="tracker-dot" href="#parcours" aria-label="De l’origine à la transmission"></a>
+          <a class="tracker-dot" href="#plateforme" aria-label="La plateforme"></a>
           <a class="tracker-dot" href="#philosophie" aria-label="Philosophie"></a>
           <a class="tracker-dot" href="#livre" aria-label="Le livre"></a>
           <a class="tracker-dot" href="#suite" aria-label="La suite"></a>
@@ -644,11 +664,33 @@
         </div>
         <div class="chapter-list">
           <span class="chapter-flow" aria-hidden="true"></span>
-          <article class="chapter reveal"><span class="chapter-number">01</span><h3>Concevoir</h3><p>Désir d’enfant, fertilité, préparation du corps, histoire familiale, intention et conscience du passage.</p></article>
-          <article class="chapter reveal"><span class="chapter-number">02</span><h3>Porter</h3><p>Grossesse physiologique, alimentation, mouvement, transformation intérieure et puissance du corps.</p></article>
-          <article class="chapter reveal"><span class="chapter-number">03</span><h3>Naître</h3><p>Choix éclairés, naissance respectée, accueil du bébé, sécurité et premiers liens.</p></article>
-          <article class="chapter reveal"><span class="chapter-number">04</span><h3>Grandir</h3><p>Développement, rythmes, autonomie, nature, pédagogies alternatives et intelligence propre de l’enfant.</p></article>
-          <article class="chapter reveal"><span class="chapter-number">05</span><h3>Transmettre</h3><p>Valeurs, spiritualité, conscience, héritages choisis et construction d’une vie familiale singulière.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">01</span><h3>Concevoir</h3><p>Désir d’enfant, fertilité, préparation du corps et du couple, fausse couche, alimentation, soins, sexualité, héritages familiaux, intention et spiritualité.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">02</span><h3>Porter</h3><p>Les trois trimestres de la grossesse, transformations du corps et du mental, alimentation, mouvement, respiration, soins, couple, lien avec le bébé et préparation intérieure à la naissance.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">03</span><h3>Naître</h3><p>Projet de naissance, choix du lieu et de l’accompagnement, physiologie, maternité et protocoles hospitaliers, droits de la femme, place du partenaire, douleur, imprévus et premières heures.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">04</span><h3>Grandir</h3><p>Postpartum, récupération, allaitement, alimentation, sommeil et rythmes, portage, développement, motricité libre, environnement, soins et modes de garde.</p></article>
+          <article class="chapter reveal"><span class="chapter-number">05</span><h3>Transmettre</h3><p>Valeurs familiales, pédagogies alternatives, parentalité consciente, communication, spiritualité, lien au vivant, héritages et monde à transmettre.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform" id="plateforme" aria-labelledby="platform-title">
+      <div class="shell">
+        <div class="platform-head reveal">
+          <div>
+            <p class="eyebrow">Contenus &amp; accompagnement</p>
+            <h2 id="platform-title">Ce que sera<br><em>la plateforme.</em></h2>
+          </div>
+          <p class="platform-intro">La plateforme réunira des contenus, des pratiques et des espaces d’accompagnement pour permettre à chacune et chacun d’explorer les sujets qui le concernent, au moment où ils se présentent.</p>
+        </div>
+        <div class="platform-options">
+          <article class="platform-option reveal">
+            <h3>Apprendre</h3>
+            <p>Vidéos, conversations, audios, guides pratiques, témoignages et ressources sélectionnées.</p>
+          </article>
+          <article class="platform-option reveal">
+            <h3>Être accompagné(e)</h3>
+            <p>Des espaces de guidance et d’échange avec Sarah, selon la formule choisie, complétés si besoin par le suivi d’Alexis Robic d’<a href="https://www.innesociety.com/" target="_blank" rel="noopener">Inné</a>.</p>
+          </article>
         </div>
       </div>
     </section>
