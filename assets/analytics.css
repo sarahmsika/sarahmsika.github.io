@@ -1,0 +1,72 @@
+.cookie-banner[hidden], .cookie-settings[hidden], .cookie-banner [hidden] {
+  display: none !important;
+}
+.cookie-banner {
+  position: fixed;
+  z-index: 1000;
+  inset: auto 20px 20px;
+  max-width: 1000px;
+  max-height: 70vh;
+  max-height: 70svh;
+  overflow-y: auto;
+  margin-inline: auto;
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 24px;
+  align-items: center;
+  color: #4b1736;
+  background: #fbf8f2;
+  border: 1px solid #4b1736;
+  box-shadow: 0 8px 35px rgb(9 11 24 / 12%);
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.cookie-banner h2 {
+  margin: 0 0 8px;
+  font-family: Lora, serif;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  font-weight: 400;
+}
+.cookie-banner p { margin: 0 0 10px; }
+.cookie-banner p:last-child { margin-bottom: 0; }
+.cookie-banner summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.cookie-banner details[open] summary { margin-bottom: 12px; }
+.cookie-banner a { color: inherit; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.cookie-current { margin-top: 10px !important; font-size: 12px; }
+.cookie-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cookie-actions button {
+  appearance: none;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #4b1736;
+  border-radius: 0;
+  background: transparent;
+  color: #4b1736;
+  font: inherit;
+  cursor: pointer;
+}
+.cookie-actions button:hover { background: #4b1736; color: #fbf8f2; }
+.cookie-actions .cookie-close { grid-column: 1 / -1; border: 0; text-decoration: underline; text-underline-offset: 3px; }
+.cookie-settings {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+.cookie-settings:hover { color: var(--skin); border-bottom-color: var(--skin); }
+.cookie-banner :focus-visible, .cookie-settings:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (max-width: 600px) {
+  .cookie-banner { inset: auto 12px 12px; padding: 20px; grid-template-columns: 1fr; gap: 16px; font-size: 12px; }
+  .cookie-banner h2 { font-size: 21px; }
+}

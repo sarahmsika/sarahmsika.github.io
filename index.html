@@ -568,6 +568,8 @@
       .hero-art img, .about-portrait img, .image-break img, .book-photo { transition: none; }
     }
   </style>
+  <link rel="stylesheet" href="assets/analytics.css">
+  <script src="assets/analytics.js" defer></script>
 </head>
 <body>
   <nav class="page-tracker" aria-label="Progression dans la page">
@@ -773,8 +775,8 @@
           <p class="book-lead">Et si ce que vous cherchiez ne s’apprenait pas, mais se révélait ? Sans dogme ni solution miracle, ce livre réunit sciences contemporaines, sagesses ancestrales et expérience vécue. Une invitation à observer, ressentir, expérimenter et choisir, afin de construire un chemin véritablement vôtre.</p>
           <div class="book-meta"><span>Sarah Msika &amp; Alexis Robic</span><span>Éditions First</span><span>05.11.2026</span></div>
           <div class="book-actions">
-            <a class="button button-dark" href="https://www.amazon.fr/s?k=Un+chemin+sacr%C3%A9+vers+soi+Sarah+Msika+Alexis+Robic" target="_blank" rel="noopener">Précommander sur Amazon</a>
-            <a class="button button-dark" href="https://inne-theta.vercel.app/livre" target="_blank" rel="noopener">Découvrir les coulisses du livre</a>
+            <a class="button button-dark" href="https://www.amazon.fr/s?k=Un+chemin+sacr%C3%A9+vers+soi+Sarah+Msika+Alexis+Robic" target="_blank" rel="noopener" data-book-link="amazon">Précommander sur Amazon</a>
+            <a class="button button-dark" href="https://inne-theta.vercel.app/livre" target="_blank" rel="noopener" data-book-link="coulisses">Découvrir les coulisses du livre</a>
           </div>
         </div>
       </div>
@@ -794,16 +796,35 @@
         </div>
         <footer>
           <span>© 2026 Sarah Msika</span>
-          <nav class="footer-links" aria-label="Liens externes">
+          <nav class="footer-links" aria-label="Liens et préférences">
             <a href="https://www.instagram.com/sarah_msika/" target="_blank" rel="noopener">Instagram</a>
             <a href="https://cultivate.fr/" target="_blank" rel="noopener">Cultivate</a>
             <a href="https://www.innesociety.com/" target="_blank" rel="noopener">Inné</a>
             <a href="mailto:hello@sarahmsika.com">hello@sarahmsika.com</a>
+            <button class="cookie-settings" id="cookie-settings" type="button" aria-controls="cookie-banner" aria-expanded="false" hidden>Gérer les cookies</button>
           </nav>
         </footer>
       </div>
     </section>
   </main>
+  <section class="cookie-banner" id="cookie-banner" role="region" aria-labelledby="cookie-title" aria-describedby="cookie-description" hidden>
+    <div class="cookie-copy">
+      <h2 id="cookie-title">Un mot sur les cookies</h2>
+      <p id="cookie-description">Avec votre accord, Google Analytics nous aide à comprendre les visites, les inscriptions et les clics sur ce site. Vous pouvez accepter ou refuser cette mesure d’audience et changer d’avis à tout moment.</p>
+      <details>
+        <summary>En savoir plus</summary>
+        <p>Sarah Msika utilise Google Analytics pour mesurer la fréquentation du site et améliorer ses contenus. Avec votre consentement, Google reçoit des informations de navigation, des identifiants de cookies et des informations techniques sur votre appareil. Les fonctionnalités publicitaires sont désactivées.</p>
+        <p>Les événements d’inscription comptent les confirmations, sans transmettre les réponses du formulaire. Votre choix est conservé dans ce navigateur pendant 180 jours. Les cookies Analytics (_ga et _ga_WLYTP36GQV) ont une durée maximale de 180 jours.</p>
+        <p>Vous pouvez retirer votre consentement via « Gérer les cookies » en bas de page. Le suivi s’arrête et ces cookies sont supprimés. Pour toute question ou demande concernant vos données : <a href="mailto:hello@sarahmsika.com">hello@sarahmsika.com</a>. Consultez aussi les <a href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener noreferrer">informations de confidentialité de Google</a>, notamment sur le traitement des données hors de l’Union européenne.</p>
+      </details>
+      <p class="cookie-current" id="cookie-current" role="status" hidden></p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" id="cookie-accept">Accepter</button>
+      <button type="button" id="cookie-reject">Refuser</button>
+      <button type="button" id="cookie-close" class="cookie-close" hidden>Fermer</button>
+    </div>
+  </section>
   <script>
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -890,6 +911,7 @@
         successMessage.style.display = 'grid';
         successMessage.focus();
         interestForm.reset();
+        document.dispatchEvent(new Event('newsletter:success'));
       } catch (error) {
         errorMessage.style.display = 'block';
         errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
