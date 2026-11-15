@@ -5,7 +5,6 @@
   const disableKey = `ga-disable-${measurementId}`;
   const storageKey = 'sarahmsika.analytics-consent.v1';
   const lifetime = 180 * 24 * 60 * 60 * 1000;
-  const isProgramme = location.pathname === '/programme/' || location.pathname === '/programme/index.html';
   const banner = document.getElementById('cookie-banner');
   const settings = document.getElementById('cookie-settings');
   const accept = document.getElementById('cookie-accept');
@@ -91,9 +90,9 @@
         cookie_expires: lifetime / 1000,
         cookie_update: false,
         cookie_flags: 'SameSite=Lax;Secure',
-        page_location: isProgramme ? 'https://sarahmsika.com/programme/' : 'https://sarahmsika.com/',
+        page_location: 'https://sarahmsika.com/',
         page_referrer: referrer,
-        page_title: isProgramme ? 'Le programme — Sarah Msika' : 'Sarah Msika | Maternité consciente et transmission'
+        page_title: 'Sarah Msika | Maternité consciente et transmission'
       });
       configured = true;
     }
@@ -159,12 +158,7 @@
   banner.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && choice) hidePreferences();
   });
-  document.addEventListener('newsletter:success', () => track('newsletter_signup', { page_type: isProgramme ? 'programme' : 'home' }));
-  // Generic engagement only: never transmit chapter titles, personal stages or form values.
-  if (isProgramme) {
-    document.addEventListener('programme:presale', () => track('presale_interest_click'));
-    document.addEventListener('programme:expand', () => track('programme_expand'));
-  }
+  document.addEventListener('newsletter:success', () => track('newsletter_signup'));
   document.querySelectorAll('[data-book-link]').forEach((link) => {
     const destination = link.dataset.bookLink;
     if (!['amazon', 'coulisses'].includes(destination)) return;
