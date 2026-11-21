@@ -25,13 +25,14 @@ async function renderAccount(){
  if(!uid){
   document.getElementById('actions').hidden=true;statusEl.textContent='Connectez-vous ou créez votre compte pour acheter et retrouver vos guides.';
   const target=location.origin+'/espace/'+(new URLSearchParams(location.search).has('achat')?'?achat=essentiels':'');
-  Clerk.mountSignIn(document.getElementById('auth'),{forceRedirectUrl:target,signUpForceRedirectUrl:target,appearance:{variables:{colorPrimary:'#405043',colorBackground:'#fbf8f2',fontFamily:'Inter, Arial, sans-serif',borderRadius:'6px'}}});return;
+  const signup=new URLSearchParams(location.search).has('inscription');
+  Clerk[signup?'mountSignUp':'mountSignIn'](document.getElementById('auth'),{forceRedirectUrl:target,signUpForceRedirectUrl:target,signInUrl:'/espace/',signUpUrl:'/espace/?inscription=1',appearance:{variables:{colorPrimary:'#405043',colorBackground:'#fbf8f2',fontFamily:'Inter, Arial, sans-serif',borderRadius:'6px'}}});return;
  }
- Clerk.unmountSignIn(document.getElementById('auth'));document.getElementById('auth').replaceChildren();document.getElementById('actions').hidden=false;
+ Clerk.unmountSignIn(document.getElementById('auth'));Clerk.unmountSignUp(document.getElementById('auth'));document.getElementById('auth').replaceChildren();document.getElementById('actions').hidden=false;
  await checkAccess();
 }
 async function bootAccount(){
- try{await Clerk.load({ui:{ClerkUI:window.__internal_ClerkUICtor}});await renderAccount();Clerk.addListener(()=>{if((Clerk.user?.id||null)!==currentUser)renderAccount();});}
+ try{await Clerk.load({localization:window.sarahClerkFrench,ui:{ClerkUI:window.__internal_ClerkUICtor}});await renderAccount();Clerk.addListener(()=>{if((Clerk.user?.id||null)!==currentUser)renderAccount();});}
  catch{statusEl.textContent='La connexion est indisponible. Rechargez la page.';}
 }
 document.getElementById('check').onclick=checkAccess;
