@@ -595,6 +595,36 @@ header .nav{flex-wrap:wrap}
 .platform-discover .button{min-width:0;max-width:100%;gap:24px}
 main section[id]{scroll-margin-top:calc(var(--site-header-height) + 20px)}
 @media(max-width:760px){header .nav{flex-wrap:wrap}.hero-copy{padding-top:max(170px,calc(var(--site-header-height) + 32px))}}
+</style><style id="home-guide-collection">
+.home-collection{padding-top:110px;padding-bottom:110px;color:var(--ink)}
+.home-collection .shop-heading{display:grid;grid-template-columns:1.2fr 1fr;gap:70px;align-items:end;margin-bottom:28px}
+.home-collection h2{font:400 clamp(36px,4vw,58px)/1.12 var(--serif);letter-spacing:-.04em;margin:0}
+.home-collection h2 em{font-weight:400;color:var(--aubergine)}
+.home-collection .shop-heading>p{max-width:460px;margin:0;color:#6b6167}
+.home-collection .guide-access{font-size:13px;line-height:1.6;color:#6b6167;margin-bottom:38px}
+.home-collection .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:25px;row-gap:0}
+.home-collection .product{min-width:0;display:grid;grid-template-rows:subgrid;grid-row:span 5}
+.home-collection .cover-space{background:#eee6dc;display:flex;align-items:center;justify-content:center;padding:32px 16px 38px;container-type:inline-size}
+.home-collection .cover{width:83%;min-height:310px;padding:20px 15px;background:#4b1736;color:#f4efe7;border-left:4px solid #ffffff25;box-shadow:9px 14px 19px #39262c2b;transform:rotate(-3deg);display:grid;grid-template-rows:auto auto minmax(min-content,1fr) auto auto;gap:12px;transition:transform .35s}
+.home-collection .product:nth-child(even) .cover{transform:rotate(3deg)}
+.home-collection .product:hover .cover{transform:rotate(0) translateY(-6px)}
+.home-collection .cover span{font:400 13px/1.3 var(--signature)}
+.home-collection .cover small{font-size:7px;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.home-collection .cover h3{font:400 clamp(15px,7.4cqi,23px)/1.2 var(--serif);letter-spacing:-.035em;margin:0;min-width:0;hyphens:none}
+.home-collection .cover em{font-size:clamp(9px,3.7cqi,11px);line-height:1.5}
+.home-collection .cover b{font-weight:400;font-size:7px;letter-spacing:.09em;white-space:nowrap;border-top:1px solid #ffffff50;padding-top:8px}
+.home-collection .product:nth-child(2) .cover{background:#cfaa8d;color:#301d25}
+.home-collection .product:nth-child(3) .cover{background:#121528}
+.home-collection .product:nth-child(4) .cover{background:#64705b}
+.home-collection .edition{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#796b72;padding-top:22px}
+.home-collection h3.title{font:400 22px/1.3 var(--serif);letter-spacing:-.03em;margin:20px 0 12px}
+.home-collection .product>p{font-size:14px;color:#6b6167;line-height:1.8;margin:0;padding-bottom:20px}
+.home-collection .collection-link{display:flex;align-items:center;min-height:44px;border-bottom:1px solid #a69a9f;color:var(--aubergine);font-size:14px;text-decoration:none;padding:12px 0;align-self:end}
+.home-collection .collection-link:hover{text-decoration:underline;text-underline-offset:4px}
+@supports not (grid-template-rows:subgrid){.home-collection .product{display:flex;flex-direction:column}.home-collection h3.title{min-height:86px}.home-collection .product>p{flex:1}}
+@media(max-width:900px){.home-collection{padding-top:80px;padding-bottom:80px}.home-collection .shop-heading{grid-template-columns:1fr;gap:28px}.home-collection .products{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;row-gap:0}.home-collection .product{margin-bottom:38px}}
+@media(max-width:480px){.home-collection .products{grid-template-columns:1fr}.home-collection .cover-space{padding:30px 32px 38px}.home-collection .cover{max-width:250px}.home-collection .cover h3{font-size:25px}.home-collection .cover em{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.home-collection .cover{transition:none}}
 </style></head>
 <body>
   
@@ -749,17 +779,7 @@ main section[id]{scroll-margin-top:calc(var(--site-header-height) + 20px)}
       </div>
     </section>
 
-    <section class="image-break" id="philosophie">
-      <figure class="reveal"><img src="assets/sarah-yoga.jpg" alt="Sarah Msika en mouvement dans un espace ouvert sur la nature" loading="lazy" decoding="async"></figure>
-      <div class="image-copy reveal">
-        <p class="eyebrow">Corps · Esprit · Âme · Quotidien</p>
-        <blockquote class="quote"><span class="quote-line">Le corps sait.</span><span class="quote-line">L’enfant sait.</span><em>À nous de créer l’espace pour entendre.</em></blockquote>
-        <div class="note">
-          <p>Une approche incarnée, nourrie par l’expérience, l’étude, les pratiques traditionnelles et une attention radicale au vivant.</p>
-          <p>Je ne me présente pas comme une experte. Je partage une expérience vécue, nourrie par des années de recherche, d’exploration et de pratique, pour éclairer celles et ceux qui avancent sur des questionnements proches des miens.</p>
-        </div>
-      </div>
-    </section>
+    <section class="home-collection shell" id="collection"><div class="shop-heading"><div><p class="eyebrow">La collection · Les guides thématiques</p><h2>Des guides pour<br><em>votre quotidien.</em></h2></div><p>Un sujet approfondi, des repères clairs et des outils à garder près de soi. Chaque guide peut être exploré indépendamment.</p></div><p class="guide-access">* À lire dans votre espace personnel après achat, sur mobile ou ordinateur. Un accès individuel à vos guides, sans PDF à télécharger.</p><div class="products"><article class="product"><div class="cover-space"><div class="cover"><span>Sarah <i>Msika</i></span><small>Les guides · 01</small><h3>L’hygiène naturelle<br>infantile</h3><em>Comprendre, observer, essayer. Un guide adapté à l’HNI mixte.</em><b>LA COLLECTION</b></div></div><div class="edition">Guide interactif · À venir</div><h3 class="title">L’hygiène naturelle infantile</h3><p>Les signaux, les positions et les premiers pas pour explorer une autre relation aux besoins de votre bébé.</p><a class="collection-link" href="/guides/">Découvrir la collection</a></article><article class="product"><div class="cover-space"><div class="cover"><span>Sarah <i>Msika</i></span><small>Les guides · 02</small><h3>Vos cheveux après la naissance</h3><em>Comment gérer le post-partum : comprendre la chute, accompagner la repousse.</em><b>LA COLLECTION</b></div></div><div class="edition">Guide interactif · À venir</div><h3 class="title">Vos cheveux après la naissance</h3><p>Des repères sur les cycles et les gestes pour prendre soin de vos cheveux après la naissance.</p><a class="collection-link" href="/guides/">Découvrir la collection</a></article><article class="product"><div class="cover-space"><div class="cover"><span>Sarah <i>Msika</i></span><small>Les guides · 03</small><h3>Se nourrir. Porter. Transmettre.</h3><em>Grossesse, postpartum<br>&amp; allaitement.</em><b>LA COLLECTION</b></div></div><div class="edition">Guide interactif · À venir</div><h3 class="title">Nutrition &amp; compléments</h3><p>Comprendre les besoins, les sources alimentaires et la place des compléments à chaque étape.</p><a class="collection-link" href="/guides/">Découvrir la collection</a></article><article class="product"><div class="cover-space"><div class="cover"><span>Sarah <i>Msika</i></span><small>Les guides · 04</small><h3>Les essentiels au naturel</h3><em>Matières, objets et marques naturelles et engagées</em><b>LA COLLECTION</b></div></div><div class="edition">Guide interactif · 49 €</div><h3 class="title">Les essentiels au naturel</h3><p>Des critères de choix et une sélection commentée pour préparer un quotidien qui vous ressemble.</p><a class="collection-link" href="/guides/essentiels/">Découvrir le guide</a></article></div></section>
 
     <section class="book" id="livre">
       <div class="shell book-grid reveal">
