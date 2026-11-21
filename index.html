@@ -583,27 +583,21 @@ header .approved-menu a:focus-visible{outline:1px solid currentColor;outline-off
 header .approved-menu a:last-child{border:0;padding-left:0;margin-left:12px;font-size:13px;letter-spacing:.04em}
 @media(max-width:760px){header .nav{padding-top:16px;padding-bottom:12px;gap:12px}header .approved-menu{width:100%;justify-content:space-between;gap:8px 14px;font-size:14px}header .approved-menu a:last-child{margin-left:0;font-size:12px}}
 @media(max-width:390px){header .approved-menu{gap:6px 10px;font-size:13px}header .approved-menu a:last-child{font-size:11px}}
+</style><style id="home-navigation-final">
+:root{--site-header-height:86px}
+header{position:fixed;top:0;left:0;z-index:100;background:#090b18}
+header .nav{flex-wrap:wrap}
+.hero-copy{min-width:0;padding-top:max(150px,calc(var(--site-header-height) + 32px))}
+.hero-bottom{display:flex;flex-wrap:wrap;gap:24px 32px;align-items:flex-end}
+.hero-bottom>p{flex:1 1 250px;min-width:0}
+.hero-bottom>.button{flex:0 1 auto;min-width:0;width:max-content;max-width:100%;gap:20px;line-height:1.5;white-space:normal;box-sizing:border-box}
+.platform-discover{margin-top:44px}
+.platform-discover .button{min-width:0;max-width:100%;gap:24px}
+main section[id]{scroll-margin-top:calc(var(--site-header-height) + 20px)}
+@media(max-width:760px){header .nav{flex-wrap:wrap}.hero-copy{padding-top:max(170px,calc(var(--site-header-height) + 32px))}}
 </style></head>
 <body>
-  <nav class="page-tracker" aria-label="Progression dans la page">
-    <div class="shell tracker-inner">
-      <a class="brand tracker-brand" href="#top"><span>Sarah</span> <em>Msika</em></a>
-      <div class="tracker-rail">
-        <span class="tracker-line" aria-hidden="true"></span>
-        <span class="tracker-progress" aria-hidden="true"></span>
-        <div class="tracker-dots">
-          <a class="tracker-dot is-active" href="#vision" aria-label="Vision"></a>
-          <a class="tracker-dot" href="#sarah" aria-label="Sarah Msika"></a>
-          <a class="tracker-dot" href="#liste" aria-label="Inscription"></a>
-          <a class="tracker-dot" href="#parcours" aria-label="De l’origine à la transmission"></a>
-          <a class="tracker-dot" href="#plateforme" aria-label="La plateforme"></a>
-          <a class="tracker-dot" href="#philosophie" aria-label="Philosophie"></a>
-          <a class="tracker-dot" href="#livre" aria-label="Le livre"></a>
-          <a class="tracker-dot" href="#suite" aria-label="La suite"></a>
-        </div>
-      </div>
-    </div>
-  </nav>
+  
   <header>
     <div class="shell nav">
       <a class="brand" href="#top"><span>Sarah</span> <em>Msika</em></a>
@@ -751,16 +745,7 @@ header .approved-menu a:last-child{border:0;padding-left:0;margin-left:12px;font
           </div>
           <p class="platform-intro">La plateforme réunira des contenus, des pratiques et des espaces d’accompagnement pour permettre à chacune et chacun d’explorer les sujets qui le concernent, au moment où ils se présentent.</p>
         </div>
-        <div class="platform-options">
-          <article class="platform-option reveal">
-            <h3>Apprendre</h3>
-            <p>Vidéos, conversations, audios, guides pratiques, témoignages et ressources sélectionnées.</p>
-          </article>
-          <article class="platform-option reveal">
-            <h3>Être accompagné(e)</h3>
-            <p>Des espaces de guidance et d’échange avec Sarah, selon la formule choisie, complétés si besoin par le suivi d’Alexis Robic d’<a href="https://www.innesociety.com/" target="_blank" rel="noopener">Inné</a>.</p>
-          </article>
-        </div>
+        <div class="platform-discover reveal"><a class="button button-light" href="/plateforme/">Découvrir le contenu</a></div>
       </div>
     </section>
 
@@ -868,30 +853,7 @@ header .approved-menu a:last-child{border:0;padding-left:0;margin-left:12px;font
     window.addEventListener('resize', requestTimelineUpdate);
     updateChapterTimeline();
 
-    const tracker = document.querySelector('.page-tracker');
-    const hero = document.querySelector('.hero');
-    const trackerDots = Array.from(document.querySelectorAll('.tracker-dot'));
-    const trackedSections = trackerDots.map((dot) => document.querySelector(dot.getAttribute('href')));
-    const updatePageTracker = () => {
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const trackerStart = Math.min(maxScroll, hero.offsetTop + hero.offsetHeight);
-      const trackerRange = Math.max(1, maxScroll - trackerStart);
-      const trackerProgress = Math.min(100, Math.max(0, (window.scrollY - trackerStart) / trackerRange * 100));
-      tracker.style.setProperty('--page-progress', `${trackerProgress / 100}`);
-      tracker.classList.toggle('is-visible', window.scrollY >= trackerStart - 1);
-      const marker = window.innerHeight * .46;
-      let activeIndex = 0;
-      trackedSections.forEach((section, index) => {
-        if (section && section.getBoundingClientRect().top <= marker) activeIndex = index;
-      });
-      trackerDots.forEach((dot, index) => {
-        dot.classList.toggle('is-passed', index <= activeIndex);
-        dot.classList.toggle('is-active', index === activeIndex);
-      });
-    };
-    window.addEventListener('scroll', updatePageTracker, { passive: true });
-    window.addEventListener('resize', updatePageTracker);
-    updatePageTracker();
+
 
     const interestForm = document.getElementById('sib-form');
     const signupSection = document.querySelector('.signup');
@@ -933,5 +895,5 @@ header .approved-menu a:last-child{border:0;padding-left:0;margin-left:12px;font
       }
     });
   </script>
-</body>
+<script>const siteHeader=document.querySelector('header');const syncHeaderHeight=()=>document.documentElement.style.setProperty('--site-header-height',siteHeader.getBoundingClientRect().height+'px');new ResizeObserver(syncHeaderHeight).observe(siteHeader);syncHeaderHeight();</script></body>
 </html>
