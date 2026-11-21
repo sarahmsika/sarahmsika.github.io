@@ -570,7 +570,20 @@
   </style>
   <link rel="stylesheet" href="assets/analytics.css">
   <script src="assets/analytics.js" defer></script>
-</head>
+<style id="home-menu-visibility">
+header{background:#090b18;color:#f4efe7;width:100%}
+header .nav{border-bottom:0;min-height:86px}
+header .brand{color:#f4efe7}
+header .approved-menu{display:flex;align-items:center;background:transparent;border:0;border-radius:0;box-shadow:none;padding:0;gap:32px;font-family:var(--sans);font-size:15px;font-weight:400;letter-spacing:.025em;color:#f4efe7}
+header .approved-menu a{position:relative;display:inline-flex;align-items:center;min-height:44px;color:inherit;opacity:1;text-decoration:none;text-shadow:none}
+header .approved-menu a::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+header .approved-menu a[aria-current=page]{text-decoration:none}
+header .approved-menu a[aria-current=page]::after,header .approved-menu a:hover::after{transform:scaleX(1)}
+header .approved-menu a:focus-visible{outline:1px solid currentColor;outline-offset:5px}
+header .approved-menu a:last-child{border:0;padding-left:0;margin-left:12px;font-size:13px;letter-spacing:.04em}
+@media(max-width:760px){header .nav{padding-top:16px;padding-bottom:12px;gap:12px}header .approved-menu{width:100%;justify-content:space-between;gap:8px 14px;font-size:14px}header .approved-menu a:last-child{margin-left:0;font-size:12px}}
+@media(max-width:390px){header .approved-menu{gap:6px 10px;font-size:13px}header .approved-menu a:last-child{font-size:11px}}
+</style></head>
 <body>
   <nav class="page-tracker" aria-label="Progression dans la page">
     <div class="shell tracker-inner">
@@ -594,7 +607,7 @@
   <header>
     <div class="shell nav">
       <a class="brand" href="#top"><span>Sarah</span> <em>Msika</em></a>
-      <span class="nav-note">Conscience · Maternité · Transmission</span>
+      <nav class="approved-menu" aria-label="Navigation principale"><a href="/" aria-current="page">Accueil</a><a href="/plateforme/">La plateforme</a><a href="/guides/">Les guides</a><a href="/espace/">Mon espace</a></nav>
     </div>
   </header>
 
