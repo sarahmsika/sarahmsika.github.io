@@ -634,6 +634,26 @@ main section[id]{scroll-margin-top:calc(var(--site-header-height) + 20px)}
 .home-collection .eyebrow{color:#d3a17c}
 .book{position:relative;background:var(--ivory);padding-top:125px;padding-bottom:125px}
 @media(max-width:900px){.home-collection{padding:76px 0 70px}.book{padding-top:90px;padding-bottom:90px}}
+</style><style id="about-editorial-layout">
+.about{padding:90px 0}
+.about-layout{display:grid;grid-template-columns:minmax(240px,.7fr) minmax(0,1.3fr);gap:clamp(32px,5vw,72px);align-items:center}
+.about-portrait{margin:0;aspect-ratio:4/5;max-height:480px;height:auto;min-height:0}
+.about-story{border:0;padding:0;min-width:0}
+.about-kicker{border:0;padding:0;margin:0 0 24px;max-width:none}
+.about h2{font-size:clamp(36px,3.6vw,54px);line-height:1.1;margin:0 0 28px;max-width:700px}
+.about-lead{font-size:clamp(19px,1.6vw,23px);line-height:1.55;margin:0;max-width:none}
+.about-lead::first-letter{float:none;font:inherit;color:inherit;margin:0}
+.about-details{columns:2;column-gap:clamp(32px,5vw,72px);margin-top:42px;padding-top:30px;border-top:1px solid #f4efe733}
+.about-details .about-text{font-size:16px;line-height:1.7;margin:0 0 20px;max-width:none;orphans:3;widows:3}
+.about-details .about-text:last-child{margin-bottom:0}
+.about .credentials{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;margin:38px 0 0;border-color:#f4efe733}
+.about .credential,.about .credential:nth-child(odd),.about .credential:nth-child(even){min-height:0;padding:24px 22px 0;border-bottom:0;border-right:1px solid #f4efe733}
+.about .credential:first-child{padding-left:0}.about .credential:last-child{border-right:0;padding-right:0}
+.about .credential span{font-size:11px;letter-spacing:.08em;margin-bottom:14px}
+.about .credential ul{font-size:14px;line-height:1.55}.about .credential li+li{margin-top:7px}
+@media(max-width:900px){.about{padding:72px 0}.about-layout{grid-template-columns:minmax(200px,.75fr) minmax(0,1.25fr);gap:30px}.about h2{font-size:36px}.about-lead{font-size:18px}.about-portrait{height:auto;max-height:420px}.about .credentials{grid-template-columns:repeat(2,minmax(0,1fr))}.about .credential,.about .credential:nth-child(odd),.about .credential:nth-child(even){padding:22px 20px;border-bottom:1px solid #f4efe733}.about .credential:nth-child(odd){padding-left:0}.about .credential:nth-child(even){border-right:0;padding-right:0}}
+@media(max-width:640px){.about-layout{grid-template-columns:1fr;gap:28px}.about-portrait{width:min(100%,320px);height:auto;max-height:400px;aspect-ratio:4/5}.about-details{columns:1;margin-top:28px;padding-top:26px}.about h2{font-size:clamp(34px,8vw,42px)}.about .credentials{margin-top:28px}.about-kicker{margin-bottom:18px}}
+@media(max-width:380px){.about .credentials{grid-template-columns:1fr}.about .credential,.about .credential:nth-child(odd),.about .credential:nth-child(even){border-right:0;padding:20px 0}}
 </style></head>
 <body>
   
@@ -674,21 +694,21 @@ main section[id]{scroll-margin-top:calc(var(--site-header-height) + 20px)}
 
     <section class="about" id="sarah">
       <div class="shell">
-        <div class="about-head reveal">
-          <p class="about-kicker">Sarah Msika · À propos</p>
-          <h2>Relier la stratégie, l’intuition et <em>le vivant.</em></h2>
-        </div>
+        
         <div class="about-layout reveal">
           <figure class="about-portrait"><img src="assets/sarah-profile-side.jpg" alt="Sarah Msika, portrait de profil dans la lumière" loading="lazy" decoding="async"></figure>
           <div class="about-story">
+          <p class="about-kicker">Sarah Msika · À propos</p>
+          <h2>Relier la stratégie, l’intuition et <em>le vivant.</em></h2>
+        
             <p class="about-lead">Entrepreneure, investisseuse, médium, autrice et mère, Sarah Msika relie depuis plus de dix ans des mondes que l’on oppose encore&nbsp;: le business, la stratégie, l’intuition, les connaissances contemporaines et les sagesses ancestrales, l’ambition et l’attention au vivant, la simplicité au service d’un lifestyle conscient et ancré.</p>
-            <p class="about-text">Après cinq années d’histoire de l’art et de droit à la Sorbonne, puis un passage par le monde de l’entreprise (conseil en stratégie chez PwC, responsable chez EDF), elle quitte le monde corporate à vingt-six ans pour entreprendre. D’abord seule, puis rejointe par Sidney Delourme, son associé et âme sœur, elle crée Plantation Paris, la plus grande ferme urbaine sur toiture d’Europe&nbsp;: 7&nbsp;000&nbsp;m² incluant un potager en permaculture, une serre horticole chauffée par un data center et un espace événementiel hors du commun qui accueillera des événements extraordinaires dans la Capitale. Elle développe ensuite Cultivate avec Sidney, et devient investisseur et board member d’entreprises qui réinventent nos façons de vivre, de nous nourrir et de prendre soin de nous.</p>
-            <p class="about-text">De surcroît, Pointus, son média lifestyle, l’amène à parcourir plus de trente pays, à rencontrer des praticiens et à explorer le yoga, le pranayama, l’ayurvéda, le biohacking, la nutrition consciente… Au cours des années, son chemin spirituel prend de plus en plus de place et sa médiumnité se développe considérablement, parallèlement aux formations qu’elle suit.</p>
-            <p class="about-text">Cofondatrice d’Inné et coautrice avec Alexis Robic d’<em>Un chemin sacré vers soi</em>, elle transforme aussi ce parcours en transmission.</p>
-            <p class="about-text">Sarah donne naissance à son fils à domicile, au terme d’une grossesse vécue comme une exploration consciente, spirituelle et profondément reliée au corps. Le sport, le mouvement, le yoga, l’écoute de son intuition et une préparation physiologique ont accompagné ce passage. Cette expérience, de la conception au postpartum, jusqu’à l’éducation non conventionnelle de son enfant, est l’un des fondements de cette plateforme&nbsp;: transmettre ce qu’elle a appris, éprouvé et choisi, sans en faire un modèle unique, mais donner à voir ce qui peut être fait avec plus de conscience.</p>
+            
+            
+            
+            
           </div>
         </div>
-        <div class="credentials" aria-label="Les quatre dimensions du parcours de Sarah Msika">
+        <div class="about-details reveal"><p class="about-text">Après cinq années d’histoire de l’art et de droit à la Sorbonne, puis un passage par le monde de l’entreprise (conseil en stratégie chez PwC, responsable chez EDF), elle quitte le monde corporate à vingt-six ans pour entreprendre. D’abord seule, puis rejointe par Sidney Delourme, son associé et âme sœur, elle crée Plantation Paris, la plus grande ferme urbaine sur toiture d’Europe&nbsp;: 7&nbsp;000&nbsp;m² incluant un potager en permaculture, une serre horticole chauffée par un data center et un espace événementiel hors du commun qui accueillera des événements extraordinaires dans la Capitale. Elle développe ensuite Cultivate avec Sidney, et devient investisseur et board member d’entreprises qui réinventent nos façons de vivre, de nous nourrir et de prendre soin de nous.</p><p class="about-text">De surcroît, Pointus, son média lifestyle, l’amène à parcourir plus de trente pays, à rencontrer des praticiens et à explorer le yoga, le pranayama, l’ayurvéda, le biohacking, la nutrition consciente… Au cours des années, son chemin spirituel prend de plus en plus de place et sa médiumnité se développe considérablement, parallèlement aux formations qu’elle suit.</p><p class="about-text">Cofondatrice d’Inné et coautrice avec Alexis Robic d’<em>Un chemin sacré vers soi</em>, elle transforme aussi ce parcours en transmission.</p><p class="about-text">Sarah donne naissance à son fils à domicile, au terme d’une grossesse vécue comme une exploration consciente, spirituelle et profondément reliée au corps. Le sport, le mouvement, le yoga, l’écoute de son intuition et une préparation physiologique ont accompagné ce passage. Cette expérience, de la conception au postpartum, jusqu’à l’éducation non conventionnelle de son enfant, est l’un des fondements de cette plateforme&nbsp;: transmettre ce qu’elle a appris, éprouvé et choisi, sans en faire un modèle unique, mais donner à voir ce qui peut être fait avec plus de conscience.</p></div><div class="credentials" aria-label="Les quatre dimensions du parcours de Sarah Msika">
           <div class="credential reveal">
             <span><b>01</b> · Formations et expériences</span>
             <ul>
