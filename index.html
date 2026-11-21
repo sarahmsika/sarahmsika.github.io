@@ -570,31 +570,97 @@
   </style>
   <link rel="stylesheet" href="assets/analytics.css">
   <script src="assets/analytics.js" defer></script>
-</head>
+<style id="home-menu-visibility">
+header{background:#090b18;color:#f4efe7;width:100%}
+header .nav{border-bottom:0;min-height:86px}
+header .brand{color:#f4efe7}
+header .approved-menu{display:flex;align-items:center;background:transparent;border:0;border-radius:0;box-shadow:none;padding:0;gap:32px;font-family:var(--sans);font-size:15px;font-weight:400;letter-spacing:.025em;color:#f4efe7}
+header .approved-menu a{position:relative;display:inline-flex;align-items:center;min-height:44px;color:inherit;opacity:1;text-decoration:none;text-shadow:none}
+header .approved-menu a::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+header .approved-menu a[aria-current=page]{text-decoration:none}
+header .approved-menu a[aria-current=page]::after,header .approved-menu a:hover::after{transform:scaleX(1)}
+header .approved-menu a:focus-visible{outline:1px solid currentColor;outline-offset:5px}
+header .approved-menu a:last-child{border:0;padding-left:0;margin-left:12px;font-size:13px;letter-spacing:.04em}
+@media(max-width:760px){header .nav{padding-top:16px;padding-bottom:12px;gap:12px}header .approved-menu{width:100%;justify-content:space-between;gap:8px 14px;font-size:14px}header .approved-menu a:last-child{margin-left:0;font-size:12px}}
+@media(max-width:390px){header .approved-menu{gap:6px 10px;font-size:13px}header .approved-menu a:last-child{font-size:11px}}
+</style><style id="home-navigation-final">
+:root{--site-header-height:86px}
+header{position:fixed;top:0;left:0;z-index:100;background:#090b18}
+header .nav{flex-wrap:wrap}
+.hero-copy{min-width:0;padding-top:max(150px,calc(var(--site-header-height) + 32px))}
+.hero-bottom{display:flex;flex-wrap:wrap;gap:24px 32px;align-items:flex-end}
+.hero-bottom>p{flex:1 1 250px;min-width:0}
+.hero-bottom>.button{flex:0 1 auto;min-width:0;width:max-content;max-width:100%;gap:20px;line-height:1.5;white-space:normal;box-sizing:border-box}
+.platform-discover{margin-top:44px}
+.platform-discover .button{min-width:0;max-width:100%;gap:24px}
+main section[id]{scroll-margin-top:calc(var(--site-header-height) + 20px)}
+@media(max-width:760px){header .nav{flex-wrap:wrap}.hero-copy{padding-top:max(170px,calc(var(--site-header-height) + 32px))}}
+</style><style id="home-guide-collection">
+.home-collection{padding-top:110px;padding-bottom:110px;color:var(--ink)}
+.home-collection .shop-heading{display:grid;grid-template-columns:1.2fr 1fr;gap:70px;align-items:end;margin-bottom:28px}
+.home-collection h2{font:400 clamp(36px,4vw,58px)/1.12 var(--serif);letter-spacing:-.04em;margin:0}
+.home-collection h2 em{font-weight:400;color:var(--aubergine)}
+.home-collection .shop-heading>p{max-width:460px;margin:0;color:#6b6167}
+.home-collection .guide-access{font-size:13px;line-height:1.6;color:#6b6167;margin-bottom:38px}
+.home-collection .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:25px;row-gap:0}
+.home-collection .product{min-width:0;display:grid;grid-template-rows:subgrid;grid-row:span 5}
+.home-collection .cover-space{background:#eee6dc;display:flex;align-items:center;justify-content:center;padding:32px 16px 38px;container-type:inline-size}
+.home-collection .cover{width:83%;min-height:310px;padding:20px 15px;background:#4b1736;color:#f4efe7;border-left:4px solid #ffffff25;box-shadow:9px 14px 19px #39262c2b;transform:rotate(-3deg);display:grid;grid-template-rows:auto auto minmax(min-content,1fr) auto auto;gap:12px;transition:transform .35s}
+.home-collection .product:nth-child(even) .cover{transform:rotate(3deg)}
+.home-collection .product:hover .cover{transform:rotate(0) translateY(-6px)}
+.home-collection .cover span{font:400 13px/1.3 var(--signature)}
+.home-collection .cover small{font-size:7px;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.home-collection .cover h3{font:400 clamp(15px,7.4cqi,23px)/1.2 var(--serif);letter-spacing:-.035em;margin:0;min-width:0;hyphens:none}
+.home-collection .cover em{font-size:clamp(9px,3.7cqi,11px);line-height:1.5}
+.home-collection .cover b{font-weight:400;font-size:7px;letter-spacing:.09em;white-space:nowrap;border-top:1px solid #ffffff50;padding-top:8px}
+.home-collection .product:nth-child(2) .cover{background:#cfaa8d;color:#301d25}
+.home-collection .product:nth-child(3) .cover{background:#121528}
+.home-collection .product:nth-child(4) .cover{background:#64705b}
+.home-collection .edition{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#796b72;padding-top:22px}
+.home-collection h3.title{font:400 22px/1.3 var(--serif);letter-spacing:-.03em;margin:20px 0 12px}
+.home-collection .product>p{font-size:14px;color:#6b6167;line-height:1.8;margin:0;padding-bottom:20px}
+.home-collection .collection-link{display:flex;align-items:center;min-height:44px;border-bottom:1px solid #a69a9f;color:var(--aubergine);font-size:14px;text-decoration:none;padding:12px 0;align-self:end}
+.home-collection .collection-link:hover{text-decoration:underline;text-underline-offset:4px}
+@supports not (grid-template-rows:subgrid){.home-collection .product{display:flex;flex-direction:column}.home-collection h3.title{min-height:86px}.home-collection .product>p{flex:1}}
+@media(max-width:900px){.home-collection{padding-top:80px;padding-bottom:80px}.home-collection .shop-heading{grid-template-columns:1fr;gap:28px}.home-collection .products{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;row-gap:0}.home-collection .product{margin-bottom:38px}}
+@media(max-width:480px){.home-collection .products{grid-template-columns:1fr}.home-collection .cover-space{padding:30px 32px 38px}.home-collection .cover{max-width:250px}.home-collection .cover h3{font-size:25px}.home-collection .cover em{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.home-collection .cover{transition:none}}
+</style><style id="home-section-separation">
+.home-collection{width:100%;max-width:none;margin:0;background:#4b1736;color:#f4efe7;padding:100px 0 110px}
+.home-collection .shop-heading>p,.home-collection .guide-access,.home-collection .edition,.home-collection .product>p{color:#f4efe7d9}
+.home-collection h2 em{color:#d3a17c}
+.home-collection .cover-space{background:#eee6dc}
+.home-collection .collection-link{color:#f4efe7;border-bottom-color:#f4efe766}
+.home-collection .eyebrow{color:#d3a17c}
+.book{position:relative;background:var(--ivory);padding-top:125px;padding-bottom:125px}
+@media(max-width:900px){.home-collection{padding:76px 0 70px}.book{padding-top:90px;padding-bottom:90px}}
+</style><style id="about-editorial-layout">
+.about{padding:90px 0}
+.about-layout{display:grid;grid-template-columns:minmax(240px,.7fr) minmax(0,1.3fr);gap:clamp(32px,5vw,72px);align-items:center}
+.about-portrait{margin:0;aspect-ratio:4/5;max-height:480px;height:auto;min-height:0}
+.about-story{border:0;padding:0;min-width:0}
+.about-kicker{border:0;padding:0;margin:0 0 24px;max-width:none}
+.about h2{font-size:clamp(36px,3.6vw,54px);line-height:1.1;margin:0 0 28px;max-width:700px}
+.about-lead{font-size:clamp(19px,1.6vw,23px);line-height:1.55;margin:0;max-width:none}
+.about-lead::first-letter{float:none;font:inherit;color:inherit;margin:0}
+.about-details{columns:2;column-gap:clamp(32px,5vw,72px);margin-top:42px;padding-top:30px;border-top:1px solid #f4efe733}
+.about-details .about-text{font-size:16px;line-height:1.7;margin:0 0 20px;max-width:none;orphans:3;widows:3}
+.about-details .about-text:last-child{margin-bottom:0}
+.about .credentials{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;margin:38px 0 0;border-color:#f4efe733}
+.about .credential,.about .credential:nth-child(odd),.about .credential:nth-child(even){min-height:0;padding:24px 22px 0;border-bottom:0;border-right:1px solid #f4efe733}
+.about .credential:first-child{padding-left:0}.about .credential:last-child{border-right:0;padding-right:0}
+.about .credential span{font-size:11px;letter-spacing:.08em;margin-bottom:14px}
+.about .credential ul{font-size:14px;line-height:1.55}.about .credential li+li{margin-top:7px}
+@media(max-width:900px){.about{padding:72px 0}.about-layout{grid-template-columns:minmax(200px,.75fr) minmax(0,1.25fr);gap:30px}.about h2{font-size:36px}.about-lead{font-size:18px}.about-portrait{height:auto;max-height:420px}.about .credentials{grid-template-columns:repeat(2,minmax(0,1fr))}.about .credential,.about .credential:nth-child(odd),.about .credential:nth-child(even){padding:22px 20px;border-bottom:1px solid #f4efe733}.about .credential:nth-child(odd){padding-left:0}.about .credential:nth-child(even){border-right:0;padding-right:0}}
+@media(max-width:640px){.about-layout{grid-template-columns:1fr;gap:28px}.about-portrait{width:min(100%,320px);height:auto;max-height:400px;aspect-ratio:4/5}.about-details{columns:1;margin-top:28px;padding-top:26px}.about h2{font-size:clamp(34px,8vw,42px)}.about .credentials{margin-top:28px}.about-kicker{margin-bottom:18px}}
+@media(max-width:380px){.about .credentials{grid-template-columns:1fr}.about .credential,.about .credential:nth-child(odd),.about .credential:nth-child(even){border-right:0;padding:20px 0}}
+</style></head>
 <body>
-  <nav class="page-tracker" aria-label="Progression dans la page">
-    <div class="shell tracker-inner">
-      <a class="brand tracker-brand" href="#top"><span>Sarah</span> <em>Msika</em></a>
-      <div class="tracker-rail">
-        <span class="tracker-line" aria-hidden="true"></span>
-        <span class="tracker-progress" aria-hidden="true"></span>
-        <div class="tracker-dots">
-          <a class="tracker-dot is-active" href="#vision" aria-label="Vision"></a>
-          <a class="tracker-dot" href="#sarah" aria-label="Sarah Msika"></a>
-          <a class="tracker-dot" href="#liste" aria-label="Inscription"></a>
-          <a class="tracker-dot" href="#parcours" aria-label="De l’origine à la transmission"></a>
-          <a class="tracker-dot" href="#plateforme" aria-label="La plateforme"></a>
-          <a class="tracker-dot" href="#philosophie" aria-label="Philosophie"></a>
-          <a class="tracker-dot" href="#livre" aria-label="Le livre"></a>
-          <a class="tracker-dot" href="#suite" aria-label="La suite"></a>
-        </div>
-      </div>
-    </div>
-  </nav>
+  
   <header>
     <div class="shell nav">
       <a class="brand" href="#top"><span>Sarah</span> <em>Msika</em></a>
-      <span class="nav-note">Conscience · Maternité · Transmission</span>
+      <nav class="approved-menu" aria-label="Navigation principale"><a href="/" aria-current="page">Accueil</a><a href="/plateforme/">La plateforme</a><a href="/guides/">Les guides</a><a href="/espace/">Mon espace</a></nav>
     </div>
   </header>
 
@@ -628,21 +694,21 @@
 
     <section class="about" id="sarah">
       <div class="shell">
-        <div class="about-head reveal">
-          <p class="about-kicker">Sarah Msika · À propos</p>
-          <h2>Relier la stratégie, l’intuition et <em>le vivant.</em></h2>
-        </div>
+        
         <div class="about-layout reveal">
           <figure class="about-portrait"><img src="assets/sarah-profile-side.jpg" alt="Sarah Msika, portrait de profil dans la lumière" loading="lazy" decoding="async"></figure>
           <div class="about-story">
+          <p class="about-kicker">Sarah Msika · À propos</p>
+          <h2>Relier la stratégie, l’intuition et <em>le vivant.</em></h2>
+        
             <p class="about-lead">Entrepreneure, investisseuse, médium, autrice et mère, Sarah Msika relie depuis plus de dix ans des mondes que l’on oppose encore&nbsp;: le business, la stratégie, l’intuition, les connaissances contemporaines et les sagesses ancestrales, l’ambition et l’attention au vivant, la simplicité au service d’un lifestyle conscient et ancré.</p>
-            <p class="about-text">Après cinq années d’histoire de l’art et de droit à la Sorbonne, puis un passage par le monde de l’entreprise (conseil en stratégie chez PwC, responsable chez EDF), elle quitte le monde corporate à vingt-six ans pour entreprendre. D’abord seule, puis rejointe par Sidney Delourme, son associé et âme sœur, elle crée Plantation Paris, la plus grande ferme urbaine sur toiture d’Europe&nbsp;: 7&nbsp;000&nbsp;m² incluant un potager en permaculture, une serre horticole chauffée par un data center et un espace événementiel hors du commun qui accueillera des événements extraordinaires dans la Capitale. Elle développe ensuite Cultivate avec Sidney, et devient investisseur et board member d’entreprises qui réinventent nos façons de vivre, de nous nourrir et de prendre soin de nous.</p>
-            <p class="about-text">De surcroît, Pointus, son média lifestyle, l’amène à parcourir plus de trente pays, à rencontrer des praticiens et à explorer le yoga, le pranayama, l’ayurvéda, le biohacking, la nutrition consciente… Au cours des années, son chemin spirituel prend de plus en plus de place et sa médiumnité se développe considérablement, parallèlement aux formations qu’elle suit.</p>
-            <p class="about-text">Cofondatrice d’Inné et coautrice avec Alexis Robic d’<em>Un chemin sacré vers soi</em>, elle transforme aussi ce parcours en transmission.</p>
-            <p class="about-text">Sarah donne naissance à son fils à domicile, au terme d’une grossesse vécue comme une exploration consciente, spirituelle et profondément reliée au corps. Le sport, le mouvement, le yoga, l’écoute de son intuition et une préparation physiologique ont accompagné ce passage. Cette expérience, de la conception au postpartum, jusqu’à l’éducation non conventionnelle de son enfant, est l’un des fondements de cette plateforme&nbsp;: transmettre ce qu’elle a appris, éprouvé et choisi, sans en faire un modèle unique, mais donner à voir ce qui peut être fait avec plus de conscience.</p>
+            
+            
+            
+            
           </div>
         </div>
-        <div class="credentials" aria-label="Les quatre dimensions du parcours de Sarah Msika">
+        <div class="about-details reveal"><p class="about-text">Après cinq années d’histoire de l’art et de droit à la Sorbonne, puis un passage par le monde de l’entreprise (conseil en stratégie chez PwC, responsable chez EDF), elle quitte le monde corporate à vingt-six ans pour entreprendre. D’abord seule, puis rejointe par Sidney Delourme, son associé et âme sœur, elle crée Plantation Paris, la plus grande ferme urbaine sur toiture d’Europe&nbsp;: 7&nbsp;000&nbsp;m² incluant un potager en permaculture, une serre horticole chauffée par un data center et un espace événementiel hors du commun qui accueillera des événements extraordinaires dans la Capitale. Elle développe ensuite Cultivate avec Sidney, et devient investisseur et board member d’entreprises qui réinventent nos façons de vivre, de nous nourrir et de prendre soin de nous.</p><p class="about-text">De surcroît, Pointus, son média lifestyle, l’amène à parcourir plus de trente pays, à rencontrer des praticiens et à explorer le yoga, le pranayama, l’ayurvéda, le biohacking, la nutrition consciente… Au cours des années, son chemin spirituel prend de plus en plus de place et sa médiumnité se développe considérablement, parallèlement aux formations qu’elle suit.</p><p class="about-text">Cofondatrice d’Inné et coautrice avec Alexis Robic d’<em>Un chemin sacré vers soi</em>, elle transforme aussi ce parcours en transmission.</p><p class="about-text">Sarah donne naissance à son fils à domicile, au terme d’une grossesse vécue comme une exploration consciente, spirituelle et profondément reliée au corps. Le sport, le mouvement, le yoga, l’écoute de son intuition et une préparation physiologique ont accompagné ce passage. Cette expérience, de la conception au postpartum, jusqu’à l’éducation non conventionnelle de son enfant, est l’un des fondements de cette plateforme&nbsp;: transmettre ce qu’elle a appris, éprouvé et choisi, sans en faire un modèle unique, mais donner à voir ce qui peut être fait avec plus de conscience.</p></div><div class="credentials" aria-label="Les quatre dimensions du parcours de Sarah Msika">
           <div class="credential reveal">
             <span><b>01</b> · Formations et expériences</span>
             <ul>
@@ -738,30 +804,11 @@
           </div>
           <p class="platform-intro">La plateforme réunira des contenus, des pratiques et des espaces d’accompagnement pour permettre à chacune et chacun d’explorer les sujets qui le concernent, au moment où ils se présentent.</p>
         </div>
-        <div class="platform-options">
-          <article class="platform-option reveal">
-            <h3>Apprendre</h3>
-            <p>Vidéos, conversations, audios, guides pratiques, témoignages et ressources sélectionnées.</p>
-          </article>
-          <article class="platform-option reveal">
-            <h3>Être accompagné(e)</h3>
-            <p>Des espaces de guidance et d’échange avec Sarah, selon la formule choisie, complétés si besoin par le suivi d’Alexis Robic d’<a href="https://www.innesociety.com/" target="_blank" rel="noopener">Inné</a>.</p>
-          </article>
-        </div>
+        <div class="platform-discover reveal"><a class="button button-light" href="/plateforme/">Découvrir le contenu</a></div>
       </div>
     </section>
 
-    <section class="image-break" id="philosophie">
-      <figure class="reveal"><img src="assets/sarah-yoga.jpg" alt="Sarah Msika en mouvement dans un espace ouvert sur la nature" loading="lazy" decoding="async"></figure>
-      <div class="image-copy reveal">
-        <p class="eyebrow">Corps · Esprit · Âme · Quotidien</p>
-        <blockquote class="quote"><span class="quote-line">Le corps sait.</span><span class="quote-line">L’enfant sait.</span><em>À nous de créer l’espace pour entendre.</em></blockquote>
-        <div class="note">
-          <p>Une approche incarnée, nourrie par l’expérience, l’étude, les pratiques traditionnelles et une attention radicale au vivant.</p>
-          <p>Je ne me présente pas comme une experte. Je partage une expérience vécue, nourrie par des années de recherche, d’exploration et de pratique, pour éclairer celles et ceux qui avancent sur des questionnements proches des miens.</p>
-        </div>
-      </div>
-    </section>
+    <section class="home-collection" id="collection"><div class="shell"><div class="shop-heading"><div><p class="eyebrow">La collection · Les guides thématiques</p><h2>Des guides pour<br><em>votre quotidien.</em></h2></div><p>Un sujet approfondi, des repères clairs et des outils à garder près de soi. Chaque guide peut être exploré indépendamment.</p></div><p class="guide-access">* À lire dans votre espace personnel après achat, sur mobile ou ordinateur. Un accès individuel à vos guides, sans PDF à télécharger.</p><div class="products"><article class="product"><div class="cover-space"><div class="cover"><span>Sarah <i>Msika</i></span><small>Les guides · 01</small><h3>L’hygiène naturelle<br>infantile</h3><em>Comprendre, observer, essayer. Un guide adapté à l’HNI mixte.</em><b>LA COLLECTION</b></div></div><div class="edition">Guide interactif · À venir</div><h3 class="title">L’hygiène naturelle infantile</h3><p>Les signaux, les positions et les premiers pas pour explorer une autre relation aux besoins de votre bébé.</p><a class="collection-link" href="/guides/">Découvrir la collection</a></article><article class="product"><div class="cover-space"><div class="cover"><span>Sarah <i>Msika</i></span><small>Les guides · 02</small><h3>Vos cheveux après la naissance</h3><em>Comment gérer le post-partum : comprendre la chute, accompagner la repousse.</em><b>LA COLLECTION</b></div></div><div class="edition">Guide interactif · À venir</div><h3 class="title">Vos cheveux après la naissance</h3><p>Des repères sur les cycles et les gestes pour prendre soin de vos cheveux après la naissance.</p><a class="collection-link" href="/guides/">Découvrir la collection</a></article><article class="product"><div class="cover-space"><div class="cover"><span>Sarah <i>Msika</i></span><small>Les guides · 03</small><h3>Se nourrir. Porter. Transmettre.</h3><em>Grossesse, postpartum<br>&amp; allaitement.</em><b>LA COLLECTION</b></div></div><div class="edition">Guide interactif · À venir</div><h3 class="title">Nutrition &amp; compléments</h3><p>Comprendre les besoins, les sources alimentaires et la place des compléments à chaque étape.</p><a class="collection-link" href="/guides/">Découvrir la collection</a></article><article class="product"><div class="cover-space"><div class="cover"><span>Sarah <i>Msika</i></span><small>Les guides · 04</small><h3>Les essentiels au naturel</h3><em>Matières, objets et marques naturelles et engagées</em><b>LA COLLECTION</b></div></div><div class="edition">Guide interactif · 49 €</div><h3 class="title">Les essentiels au naturel</h3><p>Des critères de choix et une sélection commentée pour préparer un quotidien qui vous ressemble.</p><a class="collection-link" href="/guides/essentiels/">Découvrir le guide</a></article></div></div></section>
 
     <section class="book" id="livre">
       <div class="shell book-grid reveal">
@@ -855,30 +902,7 @@
     window.addEventListener('resize', requestTimelineUpdate);
     updateChapterTimeline();
 
-    const tracker = document.querySelector('.page-tracker');
-    const hero = document.querySelector('.hero');
-    const trackerDots = Array.from(document.querySelectorAll('.tracker-dot'));
-    const trackedSections = trackerDots.map((dot) => document.querySelector(dot.getAttribute('href')));
-    const updatePageTracker = () => {
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const trackerStart = Math.min(maxScroll, hero.offsetTop + hero.offsetHeight);
-      const trackerRange = Math.max(1, maxScroll - trackerStart);
-      const trackerProgress = Math.min(100, Math.max(0, (window.scrollY - trackerStart) / trackerRange * 100));
-      tracker.style.setProperty('--page-progress', `${trackerProgress / 100}`);
-      tracker.classList.toggle('is-visible', window.scrollY >= trackerStart - 1);
-      const marker = window.innerHeight * .46;
-      let activeIndex = 0;
-      trackedSections.forEach((section, index) => {
-        if (section && section.getBoundingClientRect().top <= marker) activeIndex = index;
-      });
-      trackerDots.forEach((dot, index) => {
-        dot.classList.toggle('is-passed', index <= activeIndex);
-        dot.classList.toggle('is-active', index === activeIndex);
-      });
-    };
-    window.addEventListener('scroll', updatePageTracker, { passive: true });
-    window.addEventListener('resize', updatePageTracker);
-    updatePageTracker();
+
 
     const interestForm = document.getElementById('sib-form');
     const signupSection = document.querySelector('.signup');
@@ -920,5 +944,5 @@
       }
     });
   </script>
-</body>
+<script>const siteHeader=document.querySelector('header');const syncHeaderHeight=()=>document.documentElement.style.setProperty('--site-header-height',siteHeader.getBoundingClientRect().height+'px');new ResizeObserver(syncHeaderHeight).observe(siteHeader);syncHeaderHeight();</script></body>
 </html>
